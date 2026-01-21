@@ -870,27 +870,59 @@ def compare_ebom():
         tk.messagebox.showwarning("提示", traceback.format_exc())
 
 
+# def compare_treeviews(treeview1, treeview2):
+#     # 获取第一个 Treeview 的数据
+#     data1 = []
+#     for row in treeview1.get_children():
+#         row_data = treeview1.item(row)['values'][:4]  # 取前4列
+#         data1.append(tuple(row_data))
+#
+#     # 获取第二个 Treeview 的数据
+#     data2 = []
+#     for row in treeview2.get_children():
+#         row_data = treeview2.item(row)['values'][:4]  # 取前4列
+#         data2.append(tuple(row_data))
+#
+#     # 转换为集合以便比较
+#     set1 = set(data1)
+#     set2 = set(data2)
+#
+#     # 计算差异
+#     missing_in_treeview2 = set1 - set2  # 第一个表格有，第二个表格没有的数据
+#     extra_in_treeview2 = set2 - set1  # 第二个表格有，第一个表格没有的数据
+#
+#     return list(missing_in_treeview2), list(extra_in_treeview2)
+
+def _normalize_col3(value: str) -> str:
+    """把第3列按';'拆分、排序后再拼回去，忽略顺序差异。"""
+    if not isinstance(value, str):
+        return value
+    parts = [p.strip() for p in value.split(';') if p.strip()]
+    return ';'.join(sorted(parts))
+
+
 def compare_treeviews(treeview1, treeview2):
-    # 获取第一个 Treeview 的数据
-    data1 = []
-    for row in treeview1.get_children():
-        row_data = treeview1.item(row)['values'][:4]  # 取前4列
-        data1.append(tuple(row_data))
+    # 取数据并生成“比较键”
+    def _get_key(tv):
+        keys = []
+        for row in tv.get_children():
+            raw = tv.item(row)['values'][:4]          # 原始4列
+            key = (
+                raw[0],
+                raw[1],
+                _normalize_col3(raw[2]),               # 第3列做顺序无关处理
+                raw[3]
+            )
+            keys.append(key)
+        return keys
 
-    # 获取第二个 Treeview 的数据
-    data2 = []
-    for row in treeview2.get_children():
-        row_data = treeview2.item(row)['values'][:4]  # 取前4列
-        data2.append(tuple(row_data))
+    keys1 = set(_get_key(treeview1))
+    keys2 = set(_get_key(treeview2))
 
-    # 转换为集合以便比较
-    set1 = set(data1)
-    set2 = set(data2)
+    missing_in_treeview2 = keys1 - keys2
+    extra_in_treeview2   = keys2 - keys1
 
-    # 计算差异
-    missing_in_treeview2 = set1 - set2  # 第一个表格有，第二个表格没有的数据
-    extra_in_treeview2 = set2 - set1  # 第二个表格有，第一个表格没有的数据
-
+    # 如需返回原始行数据，可在这里把key再映射回raw，目前直接返回差异的“键”
     return list(missing_in_treeview2), list(extra_in_treeview2)
 
 def export_report():
