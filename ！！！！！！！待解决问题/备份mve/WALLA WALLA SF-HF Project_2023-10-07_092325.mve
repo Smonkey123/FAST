@@ -1,0 +1,4637 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectXml>
+  <productname>ZX1_2</productname>
+  <culture></culture>
+  <attributelist>
+	  <attribute>
+		<name>ProgramVersion</name>
+		<value>1.0.0.171</value>
+	  </attribute>  
+	  <attribute>
+		<name>PLVersion</name>
+		<value>ZXPro_MasterPricelist_Export SWG _2023_V1_3</value>
+	  </attribute>
+  </attributelist>
+ <project>
+    <attributelist>
+		  <attribute>
+			<name>ObjectName</name>
+			<value>WALLA WALLA SF-HF Project</value>
+		  </attribute>
+		  <attribute>
+			<name>QNumber</name>
+			<value>OPP-23-6166073PR5-dwg</value>
+		  </attribute>
+		  <attribute>
+			<name>RevisionN</name>
+			<value>5</value>
+		  </attribute>
+		  <attribute>
+			<name>RevisionD</name>
+			<value>10/7/2023</value>
+		  </attribute>
+		  <attribute>
+			<name>RevisionP</name>
+			<value>ABB</value>
+		  </attribute>
+		  <attribute>
+			<name>Language</name>
+			<value>ENG</value>
+		  </attribute>
+		  <attribute>
+			<name>CustName</name>
+			<value>AUABB</value>
+		  </attribute>
+		  <attribute>
+			<name>CustRef</name>
+			<value></value>
+		  </attribute>
+		  <attribute>
+			<name>Issuer.ContPerson</name>
+			<value>ABB</value>
+		  </attribute>
+		  <attribute>
+			<name>Issuer.Name</name>
+			<value>ABB</value>
+		  </attribute>		  
+		  <attribute>
+			<name>Issuer.Phone</name>
+			<value></value>
+		  </attribute>
+		  <attribute>
+			<name>Issuer.Fax</name>
+			<value></value>
+		  </attribute>	
+		  <attribute>
+			<name>Issuer.Email</name>
+			<value>Jay-weijie.wu@cn.abb.com</value>
+		  </attribute>			  
+		  <attribute>
+			<name>Issuer.PrepDate</name>
+			<value>10/7/2023</value>
+		  </attribute>
+		  <attribute>
+			<name>Issuer.Dep</name>
+			<value></value>
+		  </attribute>
+    </attributelist>
+	<switchgearlist>
+      <switchgear>
+        <attributelist>
+          <attribute>
+            <name>ObjectName</name>
+            <value>33kV Switchgear ZX1.2(wo cable plug,non ext)</value>
+          </attribute>
+		  
+		  <attribute>
+			<name>SwitchgearType</name>
+            <value>ZX1.2</value>
+          </attribute>
+		  <attribute>
+			<name>SwitchgearName</name>
+            <value>33kV Switchgear ZX1.2(wo cable plug,non ext)</value>
+          </attribute>
+		  <attribute>
+            <name>Version</name>
+            <value>VOLL</value>
+          </attribute>
+		  <attribute>
+            <name>ChildCount</name>
+            <value>4</value>
+          </attribute>
+		  <attribute>
+            <name>Standard</name>
+            <value>IEC 62271-100, -102, -200</value>
+          </attribute>
+		  <attribute>
+            <name>NonstandardReq</name>
+            <value>No remarks</value>
+          </attribute>
+		  <attribute>
+			<name>ZX_N_A_SS_MAT</name>
+			<value>Copper</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_N_A_SS_VERB</name>
+			<value>Silver plated</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_N_A_IPHV</name>
+			<value>IP65</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_N_A_DR_ENT</name>
+			<value>&lt; 0.1% p.a.</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_N_A_DR_HALT</name>
+			<value>&gt; 40 years</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_N_A_PH_SEQ</name>
+			<value>L1, L2, L3 (Front to Back, Left to Right)</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_N_A_INST_CON</name>
+			<value>Indoor, clean and dry</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_PF_ALL</name>
+			<value>No special functions</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DRAHT_VOL</name>
+			<value>Standard (450/750 V) - Test voltage 2.5 kV</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DRAHT_INS</name>
+			<value>Halogen free</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DCCC_CS</name>
+			<value>15</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DCCC_CL</name>
+			<value>OC</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_CTC_CS</name>
+			<value>25</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_CTC_CL</name>
+			<value>OC</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_ACVC_CS</name>
+			<value>15</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_ACVC_CL</name>
+			<value>OC</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_SUPC_CS</name>
+			<value>25</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_SUPC_CL</name>
+			<value>OC</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_EARC_CS</name>
+			<value>40</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_EARC_CL</name>
+			<value>GRYE</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_LIGHT_HEAT</name>
+			<value>230 V AC</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_AUX_CON</name>
+			<value>One connection per 15 panels</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_LUNP_LG</name>
+			<value>EN</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_LUNP_DS</name>
+			<value>SA</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_LUNP_CL</name>
+			<value>WB</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_LDOL_LG</name>
+			<value>EN</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_LDOL_DS</name>
+			<value>SA</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_LDOL_CL</name>
+			<value>WB</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_LDIL_LG</name>
+			<value>EN</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_LDIL_DS</name>
+			<value>SA</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_LDIL_CL</name>
+			<value>YB</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_LANG</name>
+			<value>EN</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_DPEX_PDF</name>
+			<value>True</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_DPEX_PAP</name>
+			<value>False</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_DPEX_DXF</name>
+			<value>False</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_DPEX_DWG</name>
+			<value>False</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_DPEX_RUP</name>
+			<value>False</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_DPEX_ALL</name>
+			<value>PDF</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_DSME</name>
+			<value>PV</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_ASBU_PDF</name>
+			<value>True</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_ASBU_PAP</name>
+			<value>False</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_ASBU_DXF</name>
+			<value>False</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_ASBU_DWG</name>
+			<value>False</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_ASBU_RUP</name>
+			<value>False</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_ASBU_ALL</name>
+			<value>PDF</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_DOCU_ABSM</name>
+			<value>PV</value>
+		  </attribute>
+		  <attribute>
+			<name>FATOption4</name>
+			<value></value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_N_A_PART</name>
+			<value>PM</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_N_A_SEISMIC</name>
+			<value>Seismic withstand capability tested to IEEE Std. 693</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_MARK_MODE</name>
+			<value>DCC</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_TERMINAL_MANU</name>
+			<value>WEIDM</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_N_COM_PROT</name>
+			<value>NONE</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_N_COM_CON</name>
+			<value>NONE</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_SWG_ACCS</name>
+			<value>▪ (4)	Charging lever of the energy spring (VD4X)
+▪ (4)	Operating lever for three-position disconnector: earthing
+▪ (4)	Operating lever for three-position disconnector: on/off
+▪ (1)	Key box/1pcs per 32 panels
+▪ (4)	Wipe cloth
+▪ (4)	MMLB01
+▪ (4)	SF6 gas filling adapter
+▪ (4)	Calibrated Manometer, YB-150A
+▪ (4)	Switchboard end cover on both sides
+▪ (4)	Endplate BB for end panels without future extension
+	 
+▪ (1)	Spare parts batch(see detail apendix)
+▪ (1)	Air freight cost for CB&#38; etc.
+</value>
+		  </attribute>
+		  <attribute>
+			<name>ZX_LVC_NOTE</name>
+			<value></value>
+		  </attribute>
+		  <attribute>
+			<name>SLD_PREVIEW_SCALE</name>
+			<value>1</value>
+		  </attribute>
+		  
+			<attribute>
+				<name>ZX1_2_N_A_KV_BEM</name>
+				<value>36</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_KV_BET</name>
+				<value>36 kV</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_FREQ</name>
+				<value>50</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_KV_BST</name>
+				<value>70</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_KV_BIL</name>
+				<value>170</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_SS_N</name>
+				<value>1250</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_KA_AUS</name>
+				<value>25</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_KA_DAU</name>
+				<value>3</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_KA_PEAK</name>
+				<value>63</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_KA_ARC</name>
+				<value>25</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_KA_ARC_DUR</name>
+				<value>1</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_KA_ARC_INST</name>
+				<value>AFL</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_F_DRUCKENT_LS_AUSW_DEFAULT</name>
+				<value>PLASMA</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_CHIM</name>
+				<value>0</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_LSC</name>
+				<value>LSC2B</value>
+			  </attribute>	      
+			  <attribute>
+				<name>ZX1_2_N_A_IPX</name>
+				<value>IP4X</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_BET_DR</name>
+				<value>130 kPa</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_ISO_WAR</name>
+				<value>120 kPa</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_UTEMP</name>
+				<value>40</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_HOEHE</name>
+				<value>K1000</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_HOEHE_SONDER</name>
+				<value></value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_V_VERDRKANAL_TYP</name>
+				<value>HALOG</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_V_AUSLG_SPG_DEFAULT</name>
+				<value>110GS</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_V_MOT_LS_DEFAULT</name>
+				<value>110GS</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_F_MOT_TR_E_SPG_DEFAULT</name>
+				<value>110GS</value>
+			  </attribute>
+			  
+			  <attribute>
+				<name>ZX1_2_N_V_2AUSL_SPG_DEFAULT</name>
+				<value>110GS</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_ITH</name>
+				<value>NONE</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_G_HEIZ_DEFAULT</name>
+				<value>MIT</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_G_BEL_DEFAULT</name>
+				<value>MIT</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_G_OBS_V</name>
+				<value>7035</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_G_OBS_V_Color</name>
+				<value></value>			
+			  </attribute>          
+			  <attribute>
+				<name>ZX1_2_N_G_FLOOR_FIX</name>
+				<value>FU</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_G_GS_TIEFE_DEFAULT</name>
+				<value>500</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX2_N_G_GS_TIEFE_DEFAULT</name>
+				<value>500</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_G_SCHLIESS</name>
+				<value>DO</value>
+			  </attribute> 
+			  <attribute>
+				<name>ZX1_2_N_A_SS_AR</name>
+				<value>SBB</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_G_SWG_EXT</name>
+				<value>NO</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_SS_INS_MED</name>
+				<value>SF6</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_FAT_TYPE</name>
+				<value>F2</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_FAT_TYPE_DETAILS</name>
+<value>
+Type II: Functionality inspection (one panel per variant) - 1 day
+
+▪ Check of front view (assembly finish, dimensions, door layouts etc.)
+▪ Check of CT and VT-data (ratios, accuracies)
+▪ Check of wiring (execution and labels, secondary equipment acc. to schematics)
+▪ Completeness of loose material
+▪ Basic functions of circuit breaker, disconnector and earthing switch (ON/OFF)
+▪ Basic panel interlockings (circuit breaker - disconnector - earthing switch) as far as applicable
+▪ REF54x-trippings and measurements as far as applicable
+▪ Option (extra rate): High-voltage test (repeat test at one selected panel)</value>
+			  </attribute><attribute>
+				<name>ZX1_2_N_A_FAT_OPT1</name>
+				<value>False</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_FAT_OPT2</name>
+				<value>False</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_FAT_OPT3</name>
+				<value>False</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_FAT_OPT4</name>
+				<value>False</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_A_FAT_OPT_DETAILS</name>
+<value>
+No options</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX1_2_N_G_MARKING</name>
+				<value>MCR</value>
+			  </attribute>			  
+								
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				  
+				
+
+				
+				
+				
+				
+
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+					
+				
+				
+				
+				
+				
+			  
+				  
+				
+
+				
+				
+				
+				
+
+				
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			  
+				  
+				
+
+				
+				
+				
+				
+
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+				
+				
+			  
+				  
+				
+
+				
+				
+				
+				
+
+				
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+			  
+			  
+			  <attribute>
+				<name>ZX_SWG_HEIGHT</name>
+				<value>2400</value>
+			  </attribute>
+			  <attribute>
+				<name>ZX_MIN_HEIGHT</name>
+				<value>2800</value>
+			  </attribute>
+		  
+			  
+			  
+		  
+          
+              <attribute>
+                <name>SpecialRequire1</name>
+                <value>Spare parts batch - Spare parts batch(see detail apendix)</value>
+              </attribute>
+            
+          
+              <attribute>
+                <name>SpecialRequire2</name>
+                <value>Air freight cost for CB&#38; etc. - Air freight cost for CB&#38; etc.</value>
+              </attribute>
+            
+			
+        </attributelist>
+		
+		
+		
+        <typicallist>
+		
+		
+		
+		
+		
+          <typical>
+            <attributelist>
+			
+			<attribute>
+                <name>SaleOrderItem</name>
+                <value>1</value>
+             </attribute>
+			 <attribute>
+                <name>SalesOrderItem</name>
+                <value>1</value>
+             </attribute>
+			 <attribute>
+	                <name>PanelName</name>
+        	        <value>Cable connection In and Out 1</value>
+              </attribute>
+			 
+              <attribute>
+                <name>ObjectName</name>
+                <value>H01</value>
+              </attribute>
+			  
+			  <attribute>
+                <name>PanelCount</name>
+                <value>4</value>
+              </attribute>
+			  <attribute>
+                <name>PanelWidth</name>
+                <value>800</value>
+              </attribute>
+              <attribute>   
+                <name>PanelDepth</name>
+                <value>1600</value>
+              </attribute>
+
+              <attribute>
+                <name>LVCHeight</name>
+                <value>False</value>
+              </attribute>
+
+
+              <attribute>
+                <name>PanelHeight</name>
+                <value>2270</value>
+              </attribute>
+			  <attribute>
+                <name>lvheight</name>
+                <value>2270</value>
+              </attribute>
+			  
+			  <attribute>
+								<name>PanelWeight</name>
+								
+								<value>1000</value>
+			 </attribute>	
+			 
+			  <attribute>
+                <name>ZX_P_CONTROL_P</name>
+                <value>NONE</value>
+              </attribute>			  
+			  <attribute>
+                <name>ZX_TDL_CONTENT_PRT</name>
+                <value>▪ (1)	MCU5.0
+	 
+</value>
+              </attribute>			  
+			  <attribute>
+                <name>ZX_TDL_CONTENT_ADD</name>
+                <value>▪ (1)	Set of MCB
+▪ (3)	Auxiliary relay CR-M
+	 
+▪ (1)	MMLG01
+	 
+▪ (3)	T/C
+▪ (1)	Local/Remote
+</value>
+              </attribute>			  
+			  <attribute>			  
+                <name>ZX_TDL_CONTENT_WLD</name>
+                <value>▪ (1)	change to VCB for Capacitor VG8-K including DTO
+▪ (1)	IP41 for ZX1.2
+▪ (1)	6 mm aluminium gland plate
+▪ (1)	Wild VT parameter
+▪ (1)	Wild CT parameter
+▪ (1)	DTO for Rear Gas Duct
+▪ (1)	Thermostat(to control the heater in LV compartment)
+▪ (1)	Castell KSS20 type solenoid key
+▪ (1)	SurgeArrester 3*POLIM D 36PI-2
+▪ (1)	REV615 HBVBBCADAAH1BNN11G
+▪ (1)	RIO600-binary input module with 8 inputs
+▪ (1)	RIO600-Power supply module
+▪ (1)	RIO600-galvanic communication module with RJ45 interface
+</value>
+              </attribute>
+			  
+				  <attribute>
+					<name>ZX1_2_N_F_SF_TYP</name>
+					<value>CIO_CB</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX1_2_N_F_SF_TYP_SAP</name>
+					<value>KABE_R_R</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX1_2_N_F_ABZW_A</name>
+					<value>1250</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX1_2_N_F_SPW_SSR_OPT</name>
+					<value>NR</value>
+				  </attribute>    
+				  <attribute>
+					<name>ZX1_2_N_F_SPW_LSR_OPT</name>
+					<value>CIO</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX1_2_N_F_KAP_ANZ_GS_OPT</name>
+					<value>NR</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX1_2_N_G_KAP_ANZ_GS</name>
+					<value>MIT</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX1_2_N_F_KAP_ANZ_LSR</name>
+					<value>YES</value>
+				  </attribute>				  
+				  <attribute>
+					<name>ZX1_2_N_F_ABZW_A_TEMP_KM</name>
+					<value>NR</value>
+				  </attribute>          
+				  <attribute>
+					<name>ZX1_2_N_F_KA_PH</name>
+					<value>1</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX1_2_N_F_UABL</name>
+					<value>NEIN</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX1_2_N_F_UABL_LI_X</name>
+					<value>NR</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX1_2_N_F_UABL_RE_X</name>
+					<value>NR</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX1_2_N_F_STGR_LSR</name>
+					<value>2</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX1_2_N_F_WCT_IO</name>
+					<value>NR</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX1_2_N_F_STW_SENS</name>
+					<value>MIT_STW_LUFT</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX1_2_N_F_SPW_OPT</name>
+					<value>False</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX_N_F_KA_PH</name>
+					<value>1</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX_N_F_VERR_LS_TR</name>
+					<value>MIT</value>
+				  </attribute>
+				  <attribute>
+					<name>ZX_N_F_ABZW_A_TEMP_KM</name>
+					<value>NR</value>
+				  </attribute>
+			       
+
+				  <attribute>
+					<name>Remark</name>
+					<value>MOWMDCC - Device connection code<br/>WDHALOG - wiring ducts halogen free<br/>VCB for Capacitor VG8-K - change to VCB for Capacitor VG8-K including DTO<br/>IP41 for ZX1.2 - IP41 for ZX1.2<br/>6 mm aluminium gland plate - 6 mm aluminium gland plate<br/>Wild VT parameter - Wild VT parameter<br/>Wild CT parameter - Wild CT parameter<br/>DTO for Rear Gas Duct - DTO for Rear Gas Duct<br/>Thermostat - Thermostat(to control the heater in LV compartment)<br/>Castell KSS20 - Castell KSS20 type solenoid key<br/>SA-POLIM D 36PI-2 - SurgeArrester 3*POLIM D 36PI-2<br/>REV615 HBVBBCADAAH1BNN11G - REV615 HBVBBCADAAH1BNN11G<br/>MOD600ADIM8H - RIO600-binary input module with 8 inputs<br/>MOD600APSMH07 - RIO600-Power supply module<br/>MOD600FLECMIR - RIO600-galvanic communication module with RJ45 interface<br/></value>
+				  </attribute>
+				  
+            </attributelist>
+			
+			
+			
+			
+
+            <zonelist>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<zone>
+                <attributelist>
+                  <attribute>
+					<name>ObjectName</name>
+                    <value>BBI</value>
+                  </attribute>
+                </attributelist>
+                <devicelist>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-QZD</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value>ISO/ESW</value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>UX2TE</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value>ISO/ESW</value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C180104</value>
+                      </attribute>
+								  <attribute>
+									<name>3PS.ZX1_2_N_F_MOT_TR_E_SPG</name>
+									<value>110GS</value>
+								  </attribute>
+								  <attribute>
+									<name>3PS.ZX1_2_N_F_AUS_TR_E_DSP</name>
+									<value></value>								  
+								  </attribute>
+							  
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>1BBM_1800KO</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C180104</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>10</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+                </devicelist>
+              </zone>
+			  
+			  
+			  
+			
+			
+			
+			
+			
+			
+			
+			
+			<zone>
+                <attributelist>
+                  <attribute>
+					<name>ObjectName</name>
+                    <value>CAB</value>
+                  </attribute>
+                </attributelist>
+                <devicelist>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-BCT1</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value>RCT1</value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>Ring-type current transformer</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value>RCT1</value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C270113</value>
+                      </attribute>
+								  <attribute>
+									<name>PCT.cType</name>
+									<value>MIT_STW_LUFT</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Association</name>
+									<value>WILDCT</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Description</name>
+									<value>LMZ188-220-75, Ip=500-300A (1 cable)</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Manufacturer</name>
+									<value>DYH</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Polarity</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.NumCores</name>
+									<value>3</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Ip</name>
+									<value>500-300</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Is</name>
+									<value>1</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Burden</name>
+									<value>10</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Class</name>
+									<value>0.2</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Accuracy</name>
+									<value>10</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Summary</name>
+									<value>500-300/1A 10VA Cl. 0.2</value>
+								  </attribute>								  
+								  <attribute>
+									<name>PCT.Core2.Ip</name>
+									<value>500-300</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Is</name>
+									<value>1</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Burden</name>
+									<value>10</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Class</name>
+									<value>5P20</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Accuracy</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Summary</name>
+									<value>500-300/1A 10VA Cl. 5P20</value>
+								  </attribute>								  
+								  <attribute>
+									<name>PCT.Core3.Ip</name>
+									<value>500-300</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Is</name>
+									<value>1</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Burden</name>
+									<value>10</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Class</name>
+									<value>5P20</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Accuracy</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Summary</name>
+									<value>500-300/1A 10VA Cl. 5P20</value>
+								  </attribute>	
+								<attribute>
+									<name>CT.Core4.Ip</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Is</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Burden</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Class</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Accuracy</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Summary</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Ip</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Is</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Burden</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Class</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Accuracy</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Summary</name>
+									<value></value>
+								  </attribute>	
+							  
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>1CTL36800</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C270113</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>50</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-BCT2</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value>RCT2</value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>Ring-type current transformer</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value>RCT2</value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C270113</value>
+                      </attribute>
+								  <attribute>
+									<name>PCT.cType</name>
+									<value>MIT_STW_LUFT</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Association</name>
+									<value>WILDCT</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Description</name>
+									<value>LMZ188-220-75, Ip=500-300A (1 cable)</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Manufacturer</name>
+									<value>DYH</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Polarity</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.NumCores</name>
+									<value>3</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Ip</name>
+									<value>500-300</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Is</name>
+									<value>1</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Burden</name>
+									<value>10</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Class</name>
+									<value>0.2</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Accuracy</name>
+									<value>10</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Summary</name>
+									<value>500-300/1A 10VA Cl. 0.2</value>
+								  </attribute>								  
+								  <attribute>
+									<name>PCT.Core2.Ip</name>
+									<value>500-300</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Is</name>
+									<value>1</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Burden</name>
+									<value>10</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Class</name>
+									<value>5P20</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Accuracy</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Summary</name>
+									<value>500-300/1A 10VA Cl. 5P20</value>
+								  </attribute>								  
+								  <attribute>
+									<name>PCT.Core3.Ip</name>
+									<value>500-300</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Is</name>
+									<value>1</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Burden</name>
+									<value>10</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Class</name>
+									<value>5P20</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Accuracy</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Summary</name>
+									<value>500-300/1A 10VA Cl. 5P20</value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Ip</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Is</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Burden</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Class</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Accuracy</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Summary</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Ip</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Is</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Burden</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Class</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Accuracy</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Summary</name>
+									<value></value>
+								  </attribute>
+							  
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>1CTL36800</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C270113</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>50</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-BCT3</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value>RCT3</value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>Ring-type current transformer</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value>RCT3</value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C270113</value>
+                      </attribute>
+								  <attribute>
+									<name>PCT.cType</name>
+									<value>MIT_STW_LUFT</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Association</name>
+									<value>WILDCT</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Description</name>
+									<value>LMZ188-220-75, Ip=500-300A (1 cable)</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Manufacturer</name>
+									<value>DYH</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Polarity</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.NumCores</name>
+									<value>3</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Ip</name>
+									<value>500-300</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Is</name>
+									<value>1</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Burden</name>
+									<value>10</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Class</name>
+									<value>0.2</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Accuracy</name>
+									<value>10</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core1.Summary</name>
+									<value>500-300/1A 10VA Cl. 0.2</value>
+								  </attribute>								  
+								  <attribute>
+									<name>PCT.Core2.Ip</name>
+									<value>500-300</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Is</name>
+									<value>1</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Burden</name>
+									<value>10</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Class</name>
+									<value>5P20</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Accuracy</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core2.Summary</name>
+									<value>500-300/1A 10VA Cl. 5P20</value>
+								  </attribute>								  
+								  <attribute>
+									<name>PCT.Core3.Ip</name>
+									<value>500-300</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Is</name>
+									<value>1</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Burden</name>
+									<value>10</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Class</name>
+									<value>5P20</value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Accuracy</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PCT.Core3.Summary</name>
+									<value>500-300/1A 10VA Cl. 5P20</value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Ip</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Is</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Burden</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Class</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Accuracy</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core4.Summary</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Ip</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Is</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Burden</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Class</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Accuracy</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.IO</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Ukp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.pUkp</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Rct</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>CT.Core5.Summary</name>
+									<value></value>
+								  </attribute>
+							  
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>1CTL36800</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C270113</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>50</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+                </devicelist>
+              </zone>
+			  
+			  
+			  
+			
+			
+			
+			
+			
+			
+			
+			
+			<zone>
+                <attributelist>
+                  <attribute>
+					<name>ObjectName</name>
+                    <value>LV</value>
+                  </attribute>
+                </attributelist>
+                <devicelist>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-EB1</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value>HEAT</value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>Anticondensation heater</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value>HEAT</value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C330101</value>
+                      </attribute>
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>HEATER</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C330101</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>0</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-EA1</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value>LIGHT</value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>LV compartment lighting</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value>LIGHT</value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C340101</value>
+                      </attribute>
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>LIGHTING</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C340101</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>0</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+                </devicelist>
+              </zone>
+			  
+			  
+			  
+			
+			
+			
+			
+			
+			
+			
+			
+			<zone>
+                <attributelist>
+                  <attribute>
+					<name>ObjectName</name>
+                    <value>LVD</value>
+                  </attribute>
+                </attributelist>
+                <devicelist>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-KFP1</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value>PROT</value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>MCU5.0</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value>PROT</value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C160101</value>
+                      </attribute>
+								  
+								  
+								  <attribute>
+								    <name>PROT.Description</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>PROT.ProtFunctions</name>
+									<value></value>
+								  </attribute>								  
+						  
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>RLY</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C160101</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>70</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-SFS1</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value></value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>T/C</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value></value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C240103</value>
+                      </attribute>
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>SSA-B01-401</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C240103</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>110</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-SFS2</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value></value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>T/C</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value></value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C240103</value>
+                      </attribute>
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>SSA-B01-401</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C240103</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>110</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-SFS3</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value></value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>T/C</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value></value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C240103</value>
+                      </attribute>
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>SSA-B01-401</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C240103</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>110</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-SFS4</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value></value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>Local/Remote</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value></value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C240106</value>
+                      </attribute>
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>SSA-B02-402</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C240106</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>110</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+                </devicelist>
+              </zone>
+			  
+			  
+			  
+			
+			
+			
+			
+			
+			
+			
+			
+			<zone>
+                <attributelist>
+                  <attribute>
+					<name>ObjectName</name>
+                    <value>MV</value>
+                  </attribute>
+                </attributelist>
+                <devicelist>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-BAD1</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value>CD1</value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>Capacitive voltage detection system at rear</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value>CD1</value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C030101</value>
+                      </attribute>
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>YES</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C030101</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>10</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-BAD2</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value>CD2</value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>Capacitive voltage detection system at rear</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value>CD2</value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C030101</value>
+                      </attribute>
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>YES</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C030101</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>10</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-BAD3</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value>CD3</value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>Capacitive voltage detection system at rear</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value>CD3</value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C030101</value>
+                      </attribute>
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>YES</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C030101</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>10</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-QAB</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value>CB</value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>VD4X 3612-25 P210</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value>CB</value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C180113</value>
+                      </attribute>
+								  <attribute>
+									<name>CB.ZX1_2_N_V_TYPE</name>
+									<value>VD4X</value>
+								  </attribute>
+								  <attribute>
+									<name>CB.ZX1_2_N_V_MOT_LS</name>
+									<value>110GS</value>
+								  </attribute>
+								  <attribute>
+									<name>CB.ZX1_2_N_V_AUSW_AUSLG</name>
+									<value>UNI1</value>
+								  </attribute>
+								  <attribute>
+									<name>CB.ZX1_2_N_V_AUSW_AUSLG_DSP</name>
+									
+									
+									
+									
+									
+								  </attribute>
+								  <attribute>
+									<name>CB.ZX1_2_N_V_2AUSL_SPG</name>
+									<value>110GS</value>
+								  </attribute>
+								  <attribute>
+									<name>CB.ZX1_2_N_V_SPERR_SPG</name>
+									<value>110GS</value>
+								  </attribute>
+								  <attribute>
+									<name>CB.ZX1_2_N_V_UAUSL_WAUSL</name>
+									<value>OHNE</value>
+								  </attribute>
+								  <attribute>
+									<name>CB.ZX1_2_N_V_UAUSL_SPG</name>
+									<value>NR</value>
+								  </attribute>
+								  <attribute>
+									<name>CB.Z_N_SCHALTFOLGE</name>
+									<value>0-0,3S-CO-3MIN-CO</value>
+								  </attribute>
+								  <attribute>
+									<name>CB.ZX1_2_N_V_ABSCHL_VORR_LS</name>
+									<value>OHNE</value>
+								  </attribute>
+							  
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>VD4X1_361225_800_2E1C1</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C180113</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>20</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-BAT1</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value>VT1</value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>3 Single phase plug-in voltage transformers with disconnecting device</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value>VT1</value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C270111</value>
+                      </attribute>
+								  <attribute>
+									<name>VT.vType</name>
+									<value>CIO</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Association</name>
+									<value>WILDVT</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Description</name>
+									<value>Plug-in VT (800mm):JDZX2-35CQ</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Manufacturer</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>VT.NumCores</name>
+									<value>2</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Up</name>
+									<value>33/V3</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core1.Us</name>
+									<value>0.11/V3</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core1.Burden</name>
+									<value>50</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core1.Class</name>
+									<value>0.5/3P</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core2.Us</name>
+									<value>0.11/3</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core2.Burden</name>
+									<value>50</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core2.Class</name>
+									<value>0.5/3P</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core3.Us</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core3.Burden</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core3.Class</name>
+									<value></value>
+								  </attribute>
+							  
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>1VT_CIO</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C270111</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>60</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-BAT2</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value>VT2</value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>3 Single phase plug-in voltage transformers with disconnecting device</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value>VT2</value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C270111</value>
+                      </attribute>
+								  <attribute>
+									<name>VT.vType</name>
+									<value>CIO</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Association</name>
+									<value>WILDVT</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Description</name>
+									<value>Plug-in VT (800mm):JDZX2-35CQ</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Manufacturer</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>VT.NumCores</name>
+									<value>2</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Up</name>
+									<value>33/V3</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core1.Us</name>
+									<value>0.11/V3</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core1.Burden</name>
+									<value>50</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core1.Class</name>
+									<value>0.5/3P</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core2.Us</name>
+									<value>0.11/3</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core2.Burden</name>
+									<value>50</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core2.Class</name>
+									<value>0.5/3P</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core3.Us</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core3.Burden</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core3.Class</name>
+									<value></value>
+								  </attribute>  
+							  
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>1VT_CIO</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C270111</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>60</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+				
+				
+				
+				
+				
+
+				
+
+				
+					
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				
+				
+				
+				
+				
+				
+				
+                <device>  
+                    <attributelist>
+                      <attribute>
+                        <name>ObjectName</name>
+                        <value>-BAT3</value>
+                      </attribute>
+					  
+					  <attribute>
+                       <name>SADeviceType</name>
+					   <value>VT3</value>
+                      </attribute>
+					  
+					  <attribute>
+						<name>Description</name>
+						<value>3 Single phase plug-in voltage transformers with disconnecting device</value>
+					  </attribute>
+					  
+					  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+					  </attribute>
+	
+					  <attribute>
+                        <name>DeviceType</name>
+                        <value>VT3</value>
+                      </attribute>
+                      <attribute>
+                        <name>Class</name>
+                        <value>C270111</value>
+                      </attribute>
+								  <attribute>
+									<name>VT.vType</name>
+									<value>CIO</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Association</name>
+									<value>WILDVT</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Description</name>
+									<value>Plug-in VT (800mm):JDZX2-35CQ</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Manufacturer</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>VT.NumCores</name>
+									<value>2</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Up</name>
+									<value>33/V3</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core1.Us</name>
+									<value>0.11/V3</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core1.Burden</name>
+									<value>50</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core1.Class</name>
+									<value>0.5/3P</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core2.Us</name>
+									<value>0.11/3</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core2.Burden</name>
+									<value>50</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core2.Class</name>
+									<value>0.5/3P</value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core3.Us</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core3.Burden</name>
+									<value></value>
+								  </attribute>
+								  <attribute>
+									<name>VT.Core3.Class</name>
+									<value></value>
+								  </attribute>
+							  
+					  
+                    </attributelist>
+                    <partslist>
+                      <part>
+                        <attributelist>
+                          <attribute>
+                            <name>ObjectName</name>
+                            <value>1VT_CIO</value>
+                          </attribute>
+						  
+						  <attribute>
+							<name>Quantity</name>
+							<value>1</value>
+						  </attribute>
+		
+                          <attribute>
+                            <name>Class</name>
+                            <value>C270111</value>
+                          </attribute>
+						  <attribute>
+                            <name>Group</name>
+                            <value>60</value>
+                          </attribute>
+						  
+                        </attributelist>
+                      </part>
+                    </partslist>
+					
+                  </device>
+			      
+				  
+				  
+				  
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				  
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				  
+                </devicelist>
+              </zone>
+			  
+			  
+			  
+            </zonelist>	
+			
+          </typical>
+		  
+		  
+        </typicallist>
+        
+		
+				
+			
+		
+		<panellist>
+		
+		
+          
+		  <panel>
+            <attributelist>
+              <attribute>
+                <name>ObjectName</name>
+                <value>H01</value>
+              </attribute>
+			  <attribute>
+                <name>CustomerPanelName</name>
+                <value>H01</value>
+              </attribute>
+			  <attribute>
+                <name>PanelPosition</name>
+                <value>1</value>
+              </attribute>			  
+              <attribute>
+                <name>PanelName1</name>
+                <value>Cable connection In and Out 1</value>
+              </attribute>
+              <attribute>
+                <name>TypicalName</name>
+                <value>H01</value>
+              </attribute>
+			  <attribute>
+                <name>FirstPanel</name>
+                <value>True</value>
+              </attribute>
+			  <attribute>
+                <name>LastPanel</name>
+                <value>False</value>
+              </attribute>
+			  
+			  <attribute>
+                <name>DrawingDetailedTopview</name>
+                <value>T1_DTVFF_KRR_800_1900</value>
+              </attribute>
+			  <attribute>
+                <name>DrawingSection</name>
+                <value>S1_CBC_H_1400,S1_SF_1400,S1_LVC_500</value>
+              </attribute>
+			  <attribute>
+                <name>PanelHeight</name>
+                <value>2270</value>
+			  </attribute>
+			  
+			  <attribute>
+                <name>OwnerText</name>
+                <value></value>
+              </attribute>
+			  <attribute>
+                <name>IsTankStart</name>
+                <value>False</value>
+              </attribute>
+			  <attribute>
+                <name>IsTankEnd</name>
+                <value>False</value>
+              </attribute>
+			  <attribute>
+                <name>IsSectionStart</name>
+                <value>True</value>
+              </attribute>
+			  <attribute>
+                <name>IsSectionEnd</name>
+                <value>True</value>
+              </attribute>
+			  <attribute>
+                <name>SectionName</name>
+                <value>Not relevant</value>
+              </attribute>
+			  <attribute>
+                <name>PrevSibling</name>
+                <value>0</value>
+              </attribute>
+			  <attribute>
+                <name>NextSibling</name>
+                <value>65958080</value>
+              </attribute>
+			  
+				<attribute>
+					<name>ZX1_2_N_G_ABSORBER</name>
+					<value>NR</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_IS_ADJ_C</name>
+					
+					
+					
+					<value>NO</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_IS_ADJ_SENS</name>
+					
+					
+					
+					<value>NO</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_IS_SENS</name>
+					<value>NO</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_PRD_TYP</name>
+					
+					
+
+					
+					
+
+					
+
+					<value>NORMAL</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_ABS_TYP</name>
+					
+					
+
+					
+						
+					
+					
+
+					<value>NORMAL</value>
+				</attribute>
+				
+				<attribute>
+					<name>ZX1_2_N_G_GAS_LEFT</name>
+					<value>False</value>
+			    </attribute>
+			  	<attribute>
+					<name>ZX1_2_N_G_GAS_RIGHT</name>
+					<value>True</value>
+			    </attribute>
+				
+			  
+			</attributelist>
+            
+          </panel>
+		  
+		  
+		
+		
+          
+		  <panel>
+            <attributelist>
+              <attribute>
+                <name>ObjectName</name>
+                <value>H02</value>
+              </attribute>
+			  <attribute>
+                <name>CustomerPanelName</name>
+                <value>H02</value>
+              </attribute>
+			  <attribute>
+                <name>PanelPosition</name>
+                <value>2</value>
+              </attribute>			  
+              <attribute>
+                <name>PanelName1</name>
+                <value>Cable connection In and Out 2</value>
+              </attribute>
+              <attribute>
+                <name>TypicalName</name>
+                <value>H01</value>
+              </attribute>
+			  <attribute>
+                <name>FirstPanel</name>
+                <value>False</value>
+              </attribute>
+			  <attribute>
+                <name>LastPanel</name>
+                <value>False</value>
+              </attribute>
+			  
+			  <attribute>
+                <name>DrawingDetailedTopview</name>
+                <value>T1_DTVFF_KRR_800_1900</value>
+              </attribute>
+			  <attribute>
+                <name>DrawingSection</name>
+                <value>S1_CBC_H_1400,S1_SF_1400,S1_LVC_500</value>
+              </attribute>
+			  <attribute>
+                <name>PanelHeight</name>
+                <value>2270</value>
+			  </attribute>
+			  
+			  <attribute>
+                <name>OwnerText</name>
+                <value>Typical : H01</value>
+              </attribute>
+			  <attribute>
+                <name>IsTankStart</name>
+                <value>False</value>
+              </attribute>
+			  <attribute>
+                <name>IsTankEnd</name>
+                <value>False</value>
+              </attribute>
+			  <attribute>
+                <name>IsSectionStart</name>
+                <value>True</value>
+              </attribute>
+			  <attribute>
+                <name>IsSectionEnd</name>
+                <value>True</value>
+              </attribute>
+			  <attribute>
+                <name>SectionName</name>
+                <value>Not relevant</value>
+              </attribute>
+			  <attribute>
+                <name>PrevSibling</name>
+                <value>65969360</value>
+              </attribute>
+			  <attribute>
+                <name>NextSibling</name>
+                <value>65969600</value>
+              </attribute>
+			  
+				<attribute>
+					<name>ZX1_2_N_G_ABSORBER</name>
+					<value>NR</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_IS_ADJ_C</name>
+					
+					
+					
+					<value>NO</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_IS_ADJ_SENS</name>
+					
+					
+					
+					<value>NO</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_IS_SENS</name>
+					<value>NO</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_PRD_TYP</name>
+					
+					
+
+					
+					
+
+					
+
+					<value>NORMAL</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_ABS_TYP</name>
+					
+					
+					
+					
+					
+					
+					
+
+					<value>NORMAL</value>
+				</attribute>
+				
+				<attribute>
+					<name>ZX1_2_N_G_GAS_LEFT</name>
+					<value>True</value>
+			    </attribute>
+			  	<attribute>
+					<name>ZX1_2_N_G_GAS_RIGHT</name>
+					<value>True</value>
+			    </attribute>
+				
+			  
+			</attributelist>
+            
+          </panel>
+		  
+		  
+		
+		
+          
+		  <panel>
+            <attributelist>
+              <attribute>
+                <name>ObjectName</name>
+                <value>H03</value>
+              </attribute>
+			  <attribute>
+                <name>CustomerPanelName</name>
+                <value>H03</value>
+              </attribute>
+			  <attribute>
+                <name>PanelPosition</name>
+                <value>3</value>
+              </attribute>			  
+              <attribute>
+                <name>PanelName1</name>
+                <value>Cable connection In and Out 3</value>
+              </attribute>
+              <attribute>
+                <name>TypicalName</name>
+                <value>H01</value>
+              </attribute>
+			  <attribute>
+                <name>FirstPanel</name>
+                <value>False</value>
+              </attribute>
+			  <attribute>
+                <name>LastPanel</name>
+                <value>False</value>
+              </attribute>
+			  
+			  <attribute>
+                <name>DrawingDetailedTopview</name>
+                <value>T1_DTVFF_KRR_800_1900</value>
+              </attribute>
+			  <attribute>
+                <name>DrawingSection</name>
+                <value>S1_CBC_H_1400,S1_SF_1400,S1_LVC_500</value>
+              </attribute>
+			  <attribute>
+                <name>PanelHeight</name>
+                <value>2270</value>
+			  </attribute>
+			  
+			  <attribute>
+                <name>OwnerText</name>
+                <value>Typical : H01</value>
+              </attribute>
+			  <attribute>
+                <name>IsTankStart</name>
+                <value>False</value>
+              </attribute>
+			  <attribute>
+                <name>IsTankEnd</name>
+                <value>False</value>
+              </attribute>
+			  <attribute>
+                <name>IsSectionStart</name>
+                <value>True</value>
+              </attribute>
+			  <attribute>
+                <name>IsSectionEnd</name>
+                <value>True</value>
+              </attribute>
+			  <attribute>
+                <name>SectionName</name>
+                <value>Not relevant</value>
+              </attribute>
+			  <attribute>
+                <name>PrevSibling</name>
+                <value>65958080</value>
+              </attribute>
+			  <attribute>
+                <name>NextSibling</name>
+                <value>65969840</value>
+              </attribute>
+			  
+				<attribute>
+					<name>ZX1_2_N_G_ABSORBER</name>
+					<value>NR</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_IS_ADJ_C</name>
+					
+					
+					
+					<value>NO</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_IS_ADJ_SENS</name>
+					
+					
+					
+					<value>NO</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_IS_SENS</name>
+					<value>NO</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_PRD_TYP</name>
+					
+					
+
+					
+					
+					
+
+					<value>NORMAL</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_ABS_TYP</name>
+					
+					
+
+					
+					
+					
+
+					<value>NORMAL</value>
+				</attribute>
+				
+				<attribute>
+					<name>ZX1_2_N_G_GAS_LEFT</name>
+					<value>True</value>
+			    </attribute>
+			  	<attribute>
+					<name>ZX1_2_N_G_GAS_RIGHT</name>
+					<value>True</value>
+			    </attribute>
+				
+			  
+			</attributelist>
+            
+          </panel>
+		  
+		  
+		
+		
+          
+		  <panel>
+            <attributelist>
+              <attribute>
+                <name>ObjectName</name>
+                <value>H04</value>
+              </attribute>
+			  <attribute>
+                <name>CustomerPanelName</name>
+                <value>H04</value>
+              </attribute>
+			  <attribute>
+                <name>PanelPosition</name>
+                <value>4</value>
+              </attribute>			  
+              <attribute>
+                <name>PanelName1</name>
+                <value>Cable connection In and Out 4</value>
+              </attribute>
+              <attribute>
+                <name>TypicalName</name>
+                <value>H01</value>
+              </attribute>
+			  <attribute>
+                <name>FirstPanel</name>
+                <value>False</value>
+              </attribute>
+			  <attribute>
+                <name>LastPanel</name>
+                <value>True</value>
+              </attribute>
+			  
+			  <attribute>
+                <name>DrawingDetailedTopview</name>
+                <value>T1_DTVFF_KRR_800_1900</value>
+              </attribute>
+			  <attribute>
+                <name>DrawingSection</name>
+                <value>S1_CBC_H_1400,S1_SF_1400,S1_LVC_500</value>
+              </attribute>
+			  <attribute>
+                <name>PanelHeight</name>
+                <value>2270</value>
+			  </attribute>
+			  
+			  <attribute>
+                <name>OwnerText</name>
+                <value>Typical : H01</value>
+              </attribute>
+			  <attribute>
+                <name>IsTankStart</name>
+                <value>False</value>
+              </attribute>
+			  <attribute>
+                <name>IsTankEnd</name>
+                <value>False</value>
+              </attribute>
+			  <attribute>
+                <name>IsSectionStart</name>
+                <value>True</value>
+              </attribute>
+			  <attribute>
+                <name>IsSectionEnd</name>
+                <value>True</value>
+              </attribute>
+			  <attribute>
+                <name>SectionName</name>
+                <value>Not relevant</value>
+              </attribute>
+			  <attribute>
+                <name>PrevSibling</name>
+                <value>65969600</value>
+              </attribute>
+			  <attribute>
+                <name>NextSibling</name>
+                <value>0</value>
+              </attribute>
+			  
+				<attribute>
+					<name>ZX1_2_N_G_ABSORBER</name>
+					<value>NR</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_IS_ADJ_C</name>
+					
+					
+					
+					<value>NO</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_IS_ADJ_SENS</name>
+					
+					
+					
+					<value>NO</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_IS_SENS</name>
+					<value>NO</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_PRD_TYP</name>
+					
+					
+
+					
+					
+
+					
+
+					<value>NORMAL</value>
+				</attribute>
+				<attribute>
+					<name>ZX1_2_N_G_ABS_TYP</name>
+					
+					
+					
+					
+					
+
+					
+
+					<value>NORMAL</value>
+				</attribute>
+				
+				<attribute>
+					<name>ZX1_2_N_G_GAS_LEFT</name>
+					<value>True</value>
+			    </attribute>
+			  	<attribute>
+					<name>ZX1_2_N_G_GAS_RIGHT</name>
+					<value>False</value>
+			    </attribute>
+				
+			  
+			</attributelist>
+            
+          </panel>
+		  
+		  
+        </panellist>
+        
+      </switchgear>
+	  
+    </switchgearlist>
+  </project>
+</ProjectXml>

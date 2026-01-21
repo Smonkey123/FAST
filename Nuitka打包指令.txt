@@ -1,0 +1,14 @@
+联系IT部门，禁用防火墙
+
+1、激活虚拟环境
+conda activate gui
+
+2、切换到指定盘
+cd C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.0
+
+3、输入指令
+nuitka --standalone --mingw64 --follow-import-to=need --plugin-enable=tk-inter --plugin-enable=numpy --show-memory --show-progress --windows-disable-console --windows-icon-from-ico=logo_new.ico main.py
+
+4、打包完成，将document、ico、file、ms-playwright、playwright、babel、temp_file七个文件夹放到main.dist里面。
+
+5、只需要.dist文件夹里的内容（.build文件夹可删除），该文件夹可改名。一些相关的文件，图标都要放到该文件夹下。

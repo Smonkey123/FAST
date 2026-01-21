@@ -1,0 +1,248 @@
+
+**** Log file opened at 2024-04-02 18:28:17.343986 UTC+08:00 (China Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 10, Compiled on Aug  2 2022 04:51:23
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 1028
+ Current working directory: C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.1, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: CN-L-7370613, IP address: 10.137.232.79, IPv6 address: fe80::8dab:2d84:cef8:a8e7
+
+2024-04-02 18:28:17.344490 [05956] >> Info entry
+	Did not find config file C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.1\sapnwrfc.ini.
+2024-04-02 18:28:18.293547 [05956] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 308
+2024-04-02 18:28:18.298935 [05956] >> Error entry
+	[Handle: 2025839554880	ConvID: 61006173	Target: xc-i-cnd0601d	SysID: D06	SysNr: 000∽	User: Y_FAST_01	Mandant: 00	Language: E	Codepage: 4103]
+	RfcABAPMessageException: Key: , Code: RFC_ABAP_MESSAGE, Message: Name or password is incorrect (repeat logon)
+2024-04-02 18:31:19.055363 [05956] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 308
+2024-04-02 18:31:19.055807 [05956] >> Error entry
+	[Handle: 2025835495200	ConvID: 61229963	Target: xc-i-cnd0601d	SysID: D06	SysNr: 000닥	User: Y_FAST_01	Mandant: 00	Language: E	Codepage: 4103]
+	RfcABAPMessageException: Key: , Code: RFC_ABAP_MESSAGE, Message: Name or password is incorrect (repeat logon)
+
+**** Log file opened at 2024-04-02 18:46:25.645676 UTC+08:00 (China Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 10, Compiled on Aug  2 2022 04:51:23
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 1028
+ Current working directory: C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.1, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: CN-L-7370613, IP address: 10.137.232.79, IPv6 address: fe80::8dab:2d84:cef8:a8e7
+
+2024-04-02 18:46:25.646185 [15664] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 308
+2024-04-02 18:46:25.646966 [15664] >> Error entry
+	[Handle: 2431393216176	ConvID: 61421502	Target: xc-i-cnd0601d	SysID: D06	SysNr: 000	User: Y_FAST_01	Mandant: 00	Language: E	Codepage: 4103]
+	RfcABAPMessageException: Key: , Code: RFC_ABAP_MESSAGE, Message: Name or password is incorrect (repeat logon)
+
+**** Log file opened at 2024-04-02 18:47:56.842300 UTC+08:00 (China Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 10, Compiled on Aug  2 2022 04:51:23
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 1028
+ Current working directory: C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.1, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: CN-L-7370613, IP address: 10.137.232.79, IPv6 address: fe80::8dab:2d84:cef8:a8e7
+
+2024-04-02 18:47:56.842515 [13944] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 308
+2024-04-02 18:47:56.842798 [13944] >> Error entry
+	[Handle: 1575397617696	ConvID: 61516736	Target: xc-i-cnd0601d	SysID: D06	SysNr: 000	User: Y_FAST_01	Mandant: 00	Language: E	Codepage: 4103]
+	RfcABAPMessageException: Key: , Code: RFC_ABAP_MESSAGE, Message: Name or password is incorrect (repeat logon)
+
+**** Log file opened at 2024-04-02 18:49:32.599568 UTC+08:00 (China Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 10, Compiled on Aug  2 2022 04:51:23
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 1028
+ Current working directory: C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.1, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: CN-L-7370613, IP address: 10.137.232.79, IPv6 address: fe80::8dab:2d84:cef8:a8e7
+
+2024-04-02 18:49:32.599751 [12520] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 308
+2024-04-02 18:49:32.599948 [12520] >> Error entry
+	[Handle: 1471695367888	ConvID: 61634490	Target: xc-i-cnd0601d	SysID: D06	SysNr: 000	User: Y_FAST_01	Mandant: 00	Language: E	Codepage: 4103]
+	RfcABAPMessageException: Key: , Code: RFC_ABAP_MESSAGE, Message: Name or password is incorrect (repeat logon)
+
+**** Log file opened at 2024-04-02 18:53:11.748100 UTC+08:00 (China Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 10, Compiled on Aug  2 2022 04:51:23
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 1028
+ Current working directory: C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.1, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: CN-L-7370613, IP address: 10.137.232.79, IPv6 address: fe80::8dab:2d84:cef8:a8e7
+
+2024-04-02 18:53:11.748251 [24888] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 308
+2024-04-02 18:53:11.748448 [24888] >> Error entry
+	[Handle: 2443854422032	ConvID: 61876631	Target: xc-i-cnd0601d	SysID: D06	SysNr: 000	User: Y_FAST_01	Mandant: 00	Language: E	Codepage: 4103]
+	RfcABAPMessageException: Key: , Code: RFC_ABAP_MESSAGE, Message: Name or password is incorrect (repeat logon)
+
+**** Log file opened at 2024-04-02 18:54:32.200577 UTC+08:00 (China Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 10, Compiled on Aug  2 2022 04:51:23
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 1028
+ Current working directory: C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.1, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: CN-L-7370613, IP address: 10.137.232.79, IPv6 address: fe80::8dab:2d84:cef8:a8e7
+
+2024-04-02 18:54:32.200810 [22996] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 308
+2024-04-02 18:54:32.201114 [22996] >> Error entry
+	[Handle: 1434235072912	ConvID: 61965087	Target: xc-i-cnd0601d	SysID: D06	SysNr: 000	User: Y_FAST_01	Mandant: 00	Language: E	Codepage: 4103]
+	RfcABAPMessageException: Key: , Code: RFC_ABAP_MESSAGE, Message: Name or password is incorrect (repeat logon)
+2024-04-02 18:55:23.390894 [22996] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 308
+2024-04-02 18:55:23.391014 [22996] >> Error entry
+	[Handle: 1434247528928	ConvID: 62044290	Target: xc-i-cnd0601d	SysID: D06	SysNr: 000	User: Y_FAST_01	Mandant: 00	Language: E	Codepage: 4103]
+	RfcABAPMessageException: Key: , Code: RFC_ABAP_MESSAGE, Message: Name or password is incorrect (repeat logon)
+
+**** Log file opened at 2024-04-02 18:56:47.894206 UTC+08:00 (China Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 10, Compiled on Aug  2 2022 04:51:23
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 1028
+ Current working directory: C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.1, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: CN-L-7370613, IP address: 10.137.232.79, IPv6 address: fe80::8dab:2d84:cef8:a8e7
+
+2024-04-02 18:56:47.894350 [19720] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 308
+2024-04-02 18:56:47.894531 [19720] >> Error entry
+	[Handle: 2453231156128	ConvID: 62137789	Target: xc-i-cnd0601d	SysID: D06	SysNr: 000	User: Y_FAST_01	Mandant: 00	Language: E	Codepage: 4103]
+	RfcABAPMessageException: Key: , Code: RFC_ABAP_MESSAGE, Message: Name or password is incorrect (repeat logon)
+2024-04-02 19:06:13.047473 [19720] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 308
+2024-04-02 19:06:13.047653 [19720] >> Error entry
+	[Handle: 2453239418960	ConvID: 62944952	Target: xc-i-cnd0601d	SysID: D06	SysNr: 000	User: Y_FAST_01	Mandant: 00	Language: E	Codepage: 4103]
+	RfcABAPMessageException: Key: , Code: RFC_ABAP_MESSAGE, Message: Name or password is incorrect (repeat logon)
+
+**** Log file opened at 2024-04-02 19:14:04.980182 UTC+08:00 (China Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 10, Compiled on Aug  2 2022 04:51:23
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 1028
+ Current working directory: C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.1, Program: python
+ Hardware: PC with Windows NT 8x AMD64 Level 6 (Mod 142 Step 12), Operating_system: Windows NT 10.0
+ Hostname: CN-L-7370613, IP address: 10.137.232.79, IPv6 address: fe80::8dab:2d84:cef8:a8e7
+
+2024-04-02 19:14:04.980396 [12064] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 308
+2024-04-02 19:14:04.984090 [12064] >> Error entry
+	[Handle: 2960076684912	ConvID: 63487729	Target: xc-i-cnd0601d	SysID: D06	SysNr: 000	User: Y_FAST_01	Mandant: 00	Language: E	Codepage: 4103]
+	RfcABAPMessageException: Key: , Code: RFC_ABAP_MESSAGE, Message: Name or password is incorrect (repeat logon)
+
+**** Log file opened at 2024-07-02 14:24:08.310871 UTC+08:00 (China Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 10, Compiled on Aug  2 2022 04:51:23
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 1028
+ Current working directory: C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.1, Program: python
+ Hardware: PC with Windows NT 20x AMD64 Level 6 (Mod 186 Step 2), Operating_system: Windows NT 10.0
+ Hostname: CN-L-7509620, IP address: 10.137.235.27, IPv6 address: fe80::fd54:9369:f624:36ba
+
+2024-07-02 14:24:08.310979 [19080] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 308
+2024-07-02 14:24:08.315829 [19080] >> Error entry
+	[Handle: 2177807470704	ConvID: 26265143	Target: xc-i-cnd0601d	SysID: D06	SysNr: 00	User: Y_FAST_01	Mandant: 230	Language: E	Codepage: 4103]
+	RfcABAPMessageException: Key: , Code: RFC_ABAP_MESSAGE, Message: Name or password is incorrect (repeat logon)
+
+**** Log file opened at 2024-07-03 10:18:11.686209 UTC+08:00 (China Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 10, Compiled on Aug  2 2022 04:51:23
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 1028
+ Current working directory: C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.1, Program: python
+ Hardware: PC with Windows NT 20x AMD64 Level 6 (Mod 186 Step 2), Operating_system: Windows NT 10.0
+ Hostname: CN-L-7509620, IP address: 10.137.234.172, IPv6 address: fe80::fd54:9369:f624:36ba
+
+2024-07-03 10:18:11.686526 [21000] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 308
+2024-07-03 10:18:11.690541 [21000] >> Error entry
+	[Handle: 1629066368464	ConvID: 98032704	Target: xc-i-cnd0601d	SysID: D06	SysNr: 00	User: Y_FAST_01	Mandant: 230	Language: E	Codepage: 4103]
+	RfcABAPMessageException: Key: , Code: RFC_ABAP_MESSAGE, Message: Name or password is incorrect (repeat logon)
+
+**** Log file opened at 2024-07-04 14:58:17.593577 UTC+08:00 (China Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 10, Compiled on Aug  2 2022 04:51:23
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 1028
+ Current working directory: C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.1, Program: python
+ Hardware: PC with Windows NT 20x AMD64 Level 6 (Mod 186 Step 2), Operating_system: Windows NT 10.0
+ Hostname: CN-L-7509620, IP address: 10.137.235.23, IPv6 address: fe80::fd54:9369:f624:36ba
+
+2024-07-04 14:58:17.594071 [11332] >> Error entry
+	Error in receive: 18, no SAP ErrInfo available, 308
+2024-07-04 14:58:17.596977 [11332] >> Error entry
+	[Handle: 2103169748176	ConvID: 01425431	Target: xc-i-cnd0601d	SysID: D06	SysNr: 00	User: Y_FAST_01	Mandant: 230	Language: E	Codepage: 4103]
+	RfcABAPMessageException: Key: , Code: RFC_ABAP_MESSAGE, Message: Name or password is incorrect (repeat logon)
+
+**** Log file opened at 2024-08-24 17:13:04.002694 UTC+08:00 (China Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 10, Compiled on Aug  2 2022 04:51:23
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 1028
+ Current working directory: C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.1, Program: python
+ Hardware: PC with Windows NT 20x AMD64 Level 6 (Mod 186 Step 2), Operating_system: Windows NT 10.0
+ Hostname: CN-L-7509620, IP address: 192.168.122.24, IPv6 address: fe80::424:e47:c427:35a8
+
+2024-08-24 17:13:04.002874 [18440] >> Error entry
+	[Handle: 2070638716768	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host CN-L-7509620 with Unicode
+ERROR       partner '10.223.20.87:3300' not reached
+TIME        Sat Aug 24 17:13:03 2024
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3454
+DETAIL      NiPConnect2: 10.223.20.87:3300
+SYSTEM CALL connect
+ERRNO       10061
+ERRNO TEXT  WSAECONNREFUSED: Connection refused
+COUNTER     2
+
+
+**** Log file opened at 2024-08-24 17:15:14.859567 UTC+08:00 (China Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 10, Compiled on Aug  2 2022 04:51:23
+ CPIC library: 753.2021.05.10 version 3, NI library: 40, Kernel Release: 753 Patch Level 1028
+ Current working directory: C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.1, Program: python
+ Hardware: PC with Windows NT 20x AMD64 Level 6 (Mod 186 Step 2), Operating_system: Windows NT 10.0
+ Hostname: CN-L-7509620, IP address: 192.168.122.24, IPv6 address: fe80::424:e47:c427:35a8
+
+2024-08-24 17:15:14.859741 [04084] >> Error entry
+	[Handle: 2748625520560	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host CN-L-7509620 with Unicode
+ERROR       partner '10.223.20.87:3300' not reached
+TIME        Sat Aug 24 17:15:14 2024
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3454
+DETAIL      NiPConnect2: 10.223.20.87:3300
+SYSTEM CALL connect
+ERRNO       10061
+ERRNO TEXT  WSAECONNREFUSED: Connection refused
+COUNTER     2
+
+2024-08-24 17:32:02.048358 [04084] >> Error entry
+	[Handle: 2748623510512	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '10.223.20.87:3300' not reached
+TIME        Sat Aug 24 17:32:02 2024
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3454
+DETAIL      NiPConnect2: 10.223.20.87:3300
+SYSTEM CALL connect
+ERRNO       10061
+ERRNO TEXT  WSAECONNREFUSED: Connection refused
+COUNTER     4
+
+2024-08-24 17:42:17.973313 [04084] >> Error entry
+	[Handle: 2748623487424	ConvID: 	Target: 	SysID: 	SysNr: 	User: 	Codepage: 4103]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '10.223.20.87:3300' not reached
+TIME        Sat Aug 24 17:42:17 2024
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3454
+DETAIL      NiPConnect2: 10.223.20.87:3300
+SYSTEM CALL connect
+ERRNO       10061
+ERRNO TEXT  WSAECONNREFUSED: Connection refused
+COUNTER     6
+

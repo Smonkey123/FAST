@@ -1,0 +1,22 @@
+1、激活虚拟环境
+conda activate gui
+
+2、切换到指定盘
+cd C:\Users\CNXIGAO13\Desktop\ABB_Production_Tools_\FAST_V2.2
+
+3、输入指令
+Pyinstaller -F -w --paths need --splash start.png -i logo_new.ico main.py（不带控制窗口，打包单文件）
+Pyinstaller -F -c --paths need --splash start.png -i logo_new.ico main.py（带控制窗口，打包单文件）
+
+Pyinstaller -D --copy-metadata pyrfc --clean -w --paths need --splash start.png -i logo_new.ico main.py   （打包成文件夹）
+
+4、打包完成，将babel、ico、logo和start图片，nwrfc750P_5-70002752文件夹和setup_sapnwrfc.bat文件、Template文件夹和copy_template.bat放到dist文件夹，移除playwright文件夹。
+
+5、只需要.dist文件夹里的内容（.build文件夹可删除），该文件夹可改名。一些相关的文件，图标都要放到该文件夹下。
+
+6、请双击运行文件夹里面的 setup_sapnwrfc.bat 文件，如果遇到 Failed to set environment variable（无法设置环境变量），你需要手动设置环境变量：
+右击"此电脑"或"我的电脑"→选择"属性"→点击"高级系统设置"→在"高级"标签页中点击"环境变量"→在"系统变量"部分点击"新建"→变量名输入 SAPNWRFC_HOME→变量值输入 C:\Temp\nwrfc750P_5-70002752\nwrfcsdk 
+
+7、软件打开报错
+Failed to execute script 'main' due to unhandled exception: [WinError 2] The system cannot find the file specified
+需要根据用户双击执行对应的注册表.bat文件

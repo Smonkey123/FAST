@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AutoProcGui_USER_Scheme: APsc.Export Files V02.xml -->
+<Settings format="2">
+ <CAT name="USER">
+  <MOD name="AutoProcGui">
+   <LEV1 name="Scheme" nodekind="scheme">
+    <LEV2 name="Export Files V02">
+     <LEV3 name="Data" nodekind="block">
+      <LEV4 name="1">
+       <Setting name="Action" type="string">
+        <Val>XAPBatchPDFExportPartImpl</Val>
+       </Setting>
+       <Setting name="BLACKWHITE" type="string">
+        <Val>1</Val>
+       </Setting>
+       <Setting name="EXPORTFILE" type="string">
+        <Val>C:\temp\$(PROJECTNAME)-Files\\$(PROJECTNAME)-SLD.pdf</Val>
+       </Setting>
+       <Setting name="EXPORTMODEL" type="string">
+        <Val>1</Val>
+       </Setting>
+       <Setting name="EXPORTSCHEME" type="string">
+        <Val>SLD</Val>
+       </Setting>
+       <Setting name="FASTWEBVIEW" type="string">
+        <Val>1</Val>
+       </Setting>
+       <Setting name="READONLYEXPORT" type="string">
+        <Val>1</Val>
+       </Setting>
+       <Setting name="USEPRINTMARGINS" type="string">
+        <Val>1</Val>
+       </Setting>
+       <Setting name="USESIMPLELINK" type="string">
+        <Val>0</Val>
+       </Setting>
+       <Setting name="USEZOOM" type="string">
+        <Val>1</Val>
+       </Setting>
+       <Setting name="ZOOMLEVEL" type="string">
+        <Val>50</Val>
+       </Setting>
+      </LEV4>
+      <LEV4 name="2">
+       <Setting name="Action" type="string">
+        <Val>XAPBatchLabellingPartImpl</Val>
+       </Setting>
+       <Setting name="CONFIGSCHEME" type="string">
+        <Val>Z1</Val>
+       </Setting>
+       <Setting name="DESTINATIONFILE" type="string">
+        <Val>C:\temp\$(PROJECTNAME)-Files\$(PROJECTNAME)-Terminal list.xls</Val>
+       </Setting>
+       <Setting name="FILTERSCHEME" type="string">
+        <Val/>
+       </Setting>
+       <Setting name="LANGUAGE" type="string">
+        <Val>en_US</Val>
+       </Setting>
+       <Setting name="RECREPEAT" type="string">
+        <Val>1</Val>
+       </Setting>
+       <Setting name="SHOWOUTPUT" type="string">
+        <Val>0</Val>
+       </Setting>
+       <Setting name="SORTSCHEME" type="string">
+        <Val/>
+       </Setting>
+       <Setting name="TASKREPEAT" type="string">
+        <Val>1</Val>
+       </Setting>
+      </LEV4>
+      <LEV4 name="3">
+       <Setting name="Action" type="string">
+        <Val>XAPBatchLabellingPartImpl</Val>
+       </Setting>
+       <Setting name="CONFIGSCHEME" type="string">
+        <Val>Z2</Val>
+       </Setting>
+       <Setting name="DESTINATIONFILE" type="string">
+        <Val>C:\temp\$(PROJECTNAME)-Files\$(PROJECTNAME)-Panel.xls</Val>
+       </Setting>
+       <Setting name="FILTERSCHEME" type="string">
+        <Val/>
+       </Setting>
+       <Setting name="LANGUAGE" type="string">
+        <Val>en_US</Val>
+       </Setting>
+       <Setting name="RECREPEAT" type="string">
+        <Val>1</Val>
+       </Setting>
+       <Setting name="SHOWOUTPUT" type="string">
+        <Val>0</Val>
+       </Setting>
+       <Setting name="SORTSCHEME" type="string">
+        <Val/>
+       </Setting>
+       <Setting name="TASKREPEAT" type="string">
+        <Val>1</Val>
+       </Setting>
+      </LEV4>
+      <LEV4 name="4">
+       <Setting name="Action" type="string">
+        <Val>XAPBatchLabellingPartImpl</Val>
+       </Setting>
+       <Setting name="CONFIGSCHEME" type="string">
+        <Val>Z3</Val>
+       </Setting>
+       <Setting name="DESTINATIONFILE" type="string">
+        <Val>C:\temp\$(PROJECTNAME)-Files\$(PROJECTNAME)-Panel data.xls</Val>
+       </Setting>
+       <Setting name="FILTERSCHEME" type="string">
+        <Val/>
+       </Setting>
+       <Setting name="LANGUAGE" type="string">
+        <Val>en_US</Val>
+       </Setting>
+       <Setting name="RECREPEAT" type="string">
+        <Val>1</Val>
+       </Setting>
+       <Setting name="SHOWOUTPUT" type="string">
+        <Val>0</Val>
+       </Setting>
+       <Setting name="SORTSCHEME" type="string">
+        <Val/>
+       </Setting>
+       <Setting name="TASKREPEAT" type="string">
+        <Val>1</Val>
+       </Setting>
+      </LEV4>
+      <LEV4 name="5">
+       <Setting name="Action" type="string">
+        <Val>XAPBatchLabellingPartImpl</Val>
+       </Setting>
+       <Setting name="CONFIGSCHEME" type="string">
+        <Val>Z4</Val>
+       </Setting>
+       <Setting name="DESTINATIONFILE" type="string">
+        <Val>C:\temp\$(PROJECTNAME)-Files\$(PROJECTNAME)-LVD layout.xls</Val>
+       </Setting>
+       <Setting name="FILTERSCHEME" type="string">
+        <Val/>
+       </Setting>
+       <Setting name="LANGUAGE" type="string">
+        <Val>en_US</Val>
+       </Setting>
+       <Setting name="RECREPEAT" type="string">
+        <Val>1</Val>
+       </Setting>
+       <Setting name="SHOWOUTPUT" type="string">
+        <Val>0</Val>
+       </Setting>
+       <Setting name="SORTSCHEME" type="string">
+        <Val/>
+       </Setting>
+       <Setting name="TASKREPEAT" type="string">
+        <Val>1</Val>
+       </Setting>
+      </LEV4>
+      <LEV4 name="6">
+       <Setting name="Action" type="string">
+        <Val>XAPBatchLabellingPartImpl</Val>
+       </Setting>
+       <Setting name="CONFIGSCHEME" type="string">
+        <Val>Z5</Val>
+       </Setting>
+       <Setting name="DESTINATIONFILE" type="string">
+        <Val>C:\temp\$(PROJECTNAME)-Files\$(PROJECTNAME)-DeviceLabel.xls</Val>
+       </Setting>
+       <Setting name="FILTERSCHEME" type="string">
+        <Val/>
+       </Setting>
+       <Setting name="LANGUAGE" type="string">
+        <Val>en_US</Val>
+       </Setting>
+       <Setting name="RECREPEAT" type="string">
+        <Val>1</Val>
+       </Setting>
+       <Setting name="SHOWOUTPUT" type="string">
+        <Val>0</Val>
+       </Setting>
+       <Setting name="SORTSCHEME" type="string">
+        <Val/>
+       </Setting>
+       <Setting name="TASKREPEAT" type="string">
+        <Val>1</Val>
+       </Setting>
+      </LEV4>
+      <LEV4 name="7">
+       <Setting name="Action" type="string">
+        <Val>XAPBatchLabellingPartImpl</Val>
+       </Setting>
+       <Setting name="CONFIGSCHEME" type="string">
+        <Val>Z6</Val>
+       </Setting>
+       <Setting name="DESTINATIONFILE" type="string">
+        <Val>C:\temp\$(PROJECTNAME)-Files\$(PROJECTNAME)-BOM.xls</Val>
+       </Setting>
+       <Setting name="FILTERSCHEME" type="string">
+        <Val/>
+       </Setting>
+       <Setting name="LANGUAGE" type="string">
+        <Val>en_US</Val>
+       </Setting>
+       <Setting name="RECREPEAT" type="string">
+        <Val>1</Val>
+       </Setting>
+       <Setting name="SHOWOUTPUT" type="string">
+        <Val>0</Val>
+       </Setting>
+       <Setting name="SORTSCHEME" type="string">
+        <Val/>
+       </Setting>
+       <Setting name="TASKREPEAT" type="string">
+        <Val>1</Val>
+       </Setting>
+      </LEV4>
+      <LEV4 name="8">
+       <Setting name="Action" type="string">
+        <Val>XAPBatchLabellingPartImpl</Val>
+       </Setting>
+       <Setting name="CONFIGSCHEME" type="string">
+        <Val>Z7</Val>
+       </Setting>
+       <Setting name="DESTINATIONFILE" type="string">
+        <Val>C:\temp\$(PROJECTNAME)-Files\$(PROJECTNAME)-PBOM.xls</Val>
+       </Setting>
+       <Setting name="FILTERSCHEME" type="string">
+        <Val/>
+       </Setting>
+       <Setting name="LANGUAGE" type="string">
+        <Val>en_US</Val>
+       </Setting>
+       <Setting name="RECREPEAT" type="string">
+        <Val>1</Val>
+       </Setting>
+       <Setting name="SHOWOUTPUT" type="string">
+        <Val>0</Val>
+       </Setting>
+       <Setting name="SORTSCHEME" type="string">
+        <Val/>
+       </Setting>
+       <Setting name="TASKREPEAT" type="string">
+        <Val>1</Val>
+       </Setting>
+      </LEV4>
+      <Setting name="ProjectMinRequest" type="int">
+       <Val>0</Val>
+       <Val>0</Val>
+       <Val>0</Val>
+       <Val>0</Val>
+       <Val>0</Val>
+       <Val>0</Val>
+       <Val>0</Val>
+       <Val>0</Val>
+      </Setting>
+      <Setting name="ScriptFile" type="string">
+       <Val>$(MD_SCRIPTS)\Export Files V02.cs</Val>
+      </Setting>
+     </LEV3>
+     <Setting name="Description" type="mlstring">
+      <Val>??_??@FAST工具批量导出报表（批量导出Z1-Z7报表+SLD）;</Val>
+     </Setting>
+     <Setting name="Name" type="mlstring">
+      <Val>??_??@Export Files V02;</Val>
+     </Setting>
+     <Setting name="ReadOnly" type="bool">
+      <Val>0</Val>
+     </Setting>
+    </LEV2>
+   </LEV1>
+  </MOD>
+ </CAT>
+</Settings>
