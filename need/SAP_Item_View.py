@@ -11,6 +11,7 @@ import traceback
 import pyrfc
 import openpyxl
 from openpyxl import Workbook
+from openpyxl.styles import Alignment, Border, Side
 import warnings
 import json
 import time
@@ -141,6 +142,11 @@ def main(parent, root, w_rat, h_rat, file_path):
     # button_level_unfold.bind('<Leave>', on_leave_for_tooltip)
     Tooltip(button_level_unfold, "展开下表Item")
 
+    global button_export_item
+    button_export_item = tk.Button(fun, text='Item导出', font=("ABBvoice CNSG", int(13 * h_ratio)), compound=tk.LEFT, image=sap_export_ebom, bg="#eaf1f6", command=export_item, state='disabled', activebackground='blue')
+    button_export_item.pack(side=tk.LEFT, padx=(0, 5))
+    Tooltip(button_export_item, '导出Item信息到Excel')
+
     global button_compare_ebom
     button_compare_ebom = tk.Button(fun, text='BOM对比', font=("ABBvoice CNSG", int(13 * h_ratio)), compound=tk.LEFT, image=sap_compare_ebom, bg="#eaf1f6", command=compare_ebom, state='disabled', activebackground='blue')
     button_compare_ebom.pack(side=tk.LEFT, padx=(0, 5))
@@ -239,6 +245,7 @@ def query(event=''):
     try:
         button_level_fold['state'] = 'disabled'
         button_level_unfold['state'] = 'disabled'
+        button_export_item['state'] = 'disabled'
         button_compare_ebom['state'] = 'disabled'
         button_export_cbbom['state'] = 'disabled'
         button_export_ebom['state'] = 'disabled'
@@ -360,6 +367,7 @@ def query(event=''):
 
                             button_level_fold['state'] = 'normal'
                             button_level_unfold['state'] = 'normal'
+                            button_export_item['state'] = 'normal'
                             button_compare_ebom['state'] = 'normal'
                             button_export_cbbom['state'] = 'normal'
                             button_export_ebom['state'] = 'normal'
@@ -404,6 +412,102 @@ def query(event=''):
     except:
         tk.messagebox.showwarning("提示", traceback.format_exc())
 
+
+def export_treeview_to_excel(treeview, title="导出数据", project_id=""):
+    """
+    将 Treeview 中的数据导出到 Excel 文件
+    :param treeview: Treeview 组件
+    :param title: 导出对话框标题
+    :param project_id: 项目ID，用于命名文件和工作表
+    """
+    # 获取所有列名
+    columns = list(treeview["columns"])
+    headers = [treeview.heading(col)["text"] for col in ["#0"] + columns]
+
+    # 创建工作簿
+    wb = Workbook()
+    ws = wb.active
+    # 设置工作表名称
+    if project_id:
+        ws.title = f"{project_id}-SAP_Item数据"
+    else:
+        ws.title = "SAP_Item数据"
+
+    # 写入表头
+    ws.append(headers)
+
+    # 递归函数，用于遍历树状结构
+    def traverse_tree(item=""):
+        # 获取当前项的值
+        values = treeview.item(item, "values")
+        text = treeview.item(item, "text")
+
+        # 写入当前项数据
+        if text or values:
+            row_data = [text] + list(values)
+            ws.append(row_data)
+
+        # 遍历子项
+        children = treeview.get_children(item)
+        for child in children:
+            traverse_tree(child)
+
+    # 开始遍历
+    traverse_tree()
+
+    # 设置单元格格式
+    # 创建边框样式
+    thin_border = Border(
+        left=Side(style='thin'),
+        right=Side(style='thin'),
+        top=Side(style='thin'),
+        bottom=Side(style='thin')
+    )
+
+    # 遍历所有单元格，设置自动换行和边框
+    for row in ws.iter_rows():
+        for cell in row:
+            cell.alignment = Alignment(wrap_text=True)
+            cell.border = thin_border
+
+    # 调整列宽
+    for column in ws.columns:
+        max_length = 0
+        column_letter = column[0].column_letter
+        for cell in column:
+            try:
+                if len(str(cell.value)) > max_length:
+                    max_length = len(str(cell.value))
+            except:
+                pass
+        adjusted_width = min(max_length + 2, 50)  # 最大列宽限制为50
+        ws.column_dimensions[column_letter].width = adjusted_width
+
+    # 保存文件
+    home_path = os.path.expanduser("~")
+    desktop_path = os.path.join(home_path, "Desktop")
+    if project_id:
+        file_path = os.path.join(desktop_path, f"{project_id}-SAP_Item数据.xlsx")
+    else:
+        file_path = asksaveasfilename(
+            title=title,
+            defaultextension=".xlsx",
+            filetypes=[("Excel 文件", "*.xlsx"), ("所有文件", "*.*")],
+            initialdir=desktop_path
+        )
+
+    if file_path:
+        wb.save(file_path)
+        return True, file_path
+    return False, ""
+
+
+def export_item():
+    success, file_path = export_treeview_to_excel(Item_Info_table, "导出 Item 信息", projectID)
+    if success:
+        tk.messagebox.showinfo("提示", f"数据已成功导出到 Excel 文件：\n{file_path}")
+    else:
+        tk.messagebox.showinfo("提示", "导出已取消")
 
 def export_cbbom():
     if len(attention_a_rows) == 0:
