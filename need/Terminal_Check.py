@@ -580,10 +580,12 @@ def process():
                 end = time()
                 text.insert(tk.INSERT, ">>>端子类型检查完成!  用时%.3f秒\n" % (end - start))
 
-                text.insert(tk.INSERT, '\n>>>小母线端子一致性正在检查中...\n')  # 进行小母线端子检查
+                
                 start = time()
 
                 smallbusbar = []
+                # 记录所有识别到的 X 端子类型
+                detected_X = []
 
                 for i in range(0, len(Typical_first_index)):    # (0,1,2,3,4,5,6,7)   (0-(len(Typical_first_index)-1))
                     if i != len(Typical_first_index)-1:
@@ -600,6 +602,14 @@ def process():
                                 count_X13 += 1
                         smallbusbar.append((real_Typical, count_X11, count_X12, count_X13))
 
+                        # 记录识别到的 X 端子类型
+                        if count_X11 > 0 and 'X11' not in detected_X:
+                            detected_X.append('X11')
+                        if count_X12 > 0 and 'X12' not in detected_X:
+                            detected_X.append('X12')
+                        if count_X13 > 0 and 'X13' not in detected_X:
+                            detected_X.append('X13')
+
                     if i == len(Typical_first_index)-1:
                         count_X11 = 0
                         count_X12 = 0
@@ -614,9 +624,25 @@ def process():
                                 count_X13 += 1
                         smallbusbar.append((real_Typical, count_X11, count_X12, count_X13))
 
+                        # 记录识别到的 X 端子类型
+                        if count_X11 > 0 and 'X11' not in detected_X:
+                            detected_X.append('X11')
+                        if count_X12 > 0 and 'X12' not in detected_X:
+                            detected_X.append('X12')
+                        if count_X13 > 0 and 'X13' not in detected_X:
+                            detected_X.append('X13')
+
+                if detected_X:
+                    detected_text = '/'.join(detected_X)
+                    text.insert(tk.INSERT, f'\n>>>小母线端子(识别到{detected_text})一致性正在检查中...\n')  # 进行小母线端子检查
+                else:
+                    text.insert(tk.INSERT, '\n>>>小母线端子一致性正在检查中...\n')  # 进行小母线端子检查
+
                 check_terminal_counts(smallbusbar)
 
                 end = time()
+                # 生成识别到的 X 端子文本
+
                 text.insert(tk.INSERT, ">>>小母线端子一致性检查完成!  用时%.3f秒\n" % (end - start))
 
 
