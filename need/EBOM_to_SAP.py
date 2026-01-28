@@ -842,7 +842,7 @@ def read_panel_and_table():
                 new_C = []
 
                 for i in range(len(A)):
-                    if i < len(B) and ('空柜' not in B[i] and 'DUMMY' not in B[i].upper() and 'K1' not in B[i].upper()):
+                    if i < len(B) and ('空柜' not in B[i] and 'DUMMY' not in B[i].upper() and B[i].upper() !='K1'):
                         new_A.append(A[i])
                         new_B.append(B[i])
                         new_C.append(C[i])
