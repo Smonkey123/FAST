@@ -108,7 +108,7 @@ def main(parent, root, w_rat, h_rat, file_path):
     Tooltip(combobox_project_number, "点击v，查看最近输入历史")
     tk.Button(f1, text='查询', font=("ABBvoice CNSG", int(13 * h_ratio)), image=query_project, bg="#eaf1f6", compound=tk.LEFT, command=query, activebackground='blue').pack(side=tk.LEFT, padx=int(20 * w_ratio))
 
-    tk.Label(f1, text='  (仅支持9位项目号)', bg="#eaf1f6", fg="red", font=("ABBvoice CNSG", int(10 * h_ratio)), justify='left').pack(side=tk.LEFT, fill=tk.X)
+    tk.Label(f1, text='  (仅支持9位项目号  |  本功能所有表格数据均支持Ctrl+C复制)', bg="#eaf1f6", fg="red", font=("ABBvoice CNSG", int(10 * h_ratio)), justify='left').pack(side=tk.LEFT, fill=tk.X)
 
     f1.pack(fill=tk.X)
 
@@ -211,6 +211,48 @@ def main(parent, root, w_rat, h_rat, file_path):
 
     tk.Frame(parent, height=int(2000 * h_ratio), bg="#eaf1f6").pack(fill=tk.X)  # 水平分割线
 
+    Item_Info_table.bind("<Control-c>",
+                         lambda e: copy_cell_ctrl_c(e, Item_Info_table))
+
+global _float_label
+_float_label = None  # type: tk.Label | None
+
+def copy_cell_ctrl_c(event, tree):
+    global _float_label
+
+    region = tree.identify("region", event.x, event.y)
+    if region != "cell":
+        return
+    col = tree.identify_column(event.x)
+    row = tree.identify_row(event.y)
+
+    # ---- 取文本 & 写剪贴板 ----
+    if col == "#0":
+        text = tree.item(row, "text")
+    else:
+        idx = int(col.replace("#", "")) - 1
+        text = tree.item(row, "values")[idx]
+    root_win.clipboard_clear()
+    root_win.clipboard_append(text)
+
+    # ---- 销毁旧 Label（如果有） ----
+    if _float_label is not None:
+        _float_label.destroy()
+
+    # ---- 计算单元格几何 ----
+    x, y, w, h = tree.bbox(row, column=col)
+
+    # ---- 新建 Label ----
+    _float_label = tk.Label(tree, text=text, bg="#FFFB00", fg="black",
+                            font=("ABBvoice CNSG", int(11 * 0.8)),  # 字号稍小
+                            relief="solid", bd=1, anchor="w")
+    _float_label.place(x=x, y=y, width=w, height=h)
+
+    # ---- 事件：鼠标离开 或 获得焦点即自杀 ----
+    _float_label.bind("<Leave>", lambda e: _float_label.destroy())
+    _float_label.bind("<FocusIn>", lambda e: _float_label.destroy())
+    # 额外保险：400 ms 后自动消失（防止卡住）
+    _float_label.after(400, lambda: _float_label.destroy() if _float_label else None)
 
 def button_wrapper(flag):
     if flag == 0:
@@ -775,6 +817,8 @@ def do_compare_ebom(sel, new_date, old_date):
     add_tree.column('j', width=100, anchor='w')
 
     add_tree.tag_configure('bg_color', background="#c9dbe9")
+    add_tree.bind("<Control-c>",
+                         lambda e: copy_cell_ctrl_c(e, add_tree))
     add_tree.pack(side='left', fill='both', expand=True, padx=(10,0), pady=2)
     add_scroll.pack(side='left', fill='y')
     # 减少表
@@ -810,6 +854,8 @@ def do_compare_ebom(sel, new_date, old_date):
     rem_tree.column('j', width=100, anchor='w')
 
     rem_tree.tag_configure('bg_color', background="#c9dbe9")
+    rem_tree.bind("<Control-c>",
+                         lambda e: copy_cell_ctrl_c(e, rem_tree))
     rem_tree.pack(side='left', fill='both', expand=True, padx=(10,0), pady=2)
     rem_scroll.pack(side='left', fill='y')
 
@@ -1032,6 +1078,8 @@ def do_export_ebom(sel):
     tree.column('j', width=100, anchor='w')
 
     tree.tag_configure('bg_color', background="#c9dbe9")
+    tree.bind("<Control-c>",
+                         lambda e: copy_cell_ctrl_c(e, tree))
     tree.pack(side='left', fill='both', expand=True, padx=(10, 0), pady=2)
     tree_scroll.pack(side='left', fill='y')
 
@@ -1105,6 +1153,8 @@ def on_double_click(event):
         cbbom_configuration_table.column('b', width=100, anchor='w')
         cbbom_configuration_table.tag_configure('bg_color', background="#c9dbe9")
         cbbom_configuration_table.pack(side='left', fill='both', expand=True, anchor='w', padx=(10, 0))
+        cbbom_configuration_table.bind("<Control-c>",
+                             lambda e: copy_cell_ctrl_c(e, cbbom_configuration_table))
         scrollbar_cbbom.pack(side='left', fill='y')
 
         logging.info("Ready to connect to SAP")
@@ -1176,6 +1226,8 @@ def on_double_click(event):
         bom_table.column('j', width=100, anchor='w')
 
         bom_table.tag_configure('bg_color', background="#c9dbe9")
+        bom_table.bind("<Control-c>",
+                             lambda e: copy_cell_ctrl_c(e, bom_table))
         bom_table.pack(side='left', fill='both', expand=True, anchor='w', padx=(10,0))
         scrollbar_bom.pack(side='left', fill='y')
 
@@ -1347,6 +1399,8 @@ class PosnrSelector(tk.Toplevel):
         self.tree.column('d', width=int(400 * w_ratio), anchor='w')
         self.tree.column('e', width=int(600 * w_ratio), anchor='w')
 
+        self.tree.bind("<Control-c>",
+                             lambda e: copy_cell_ctrl_c(e, self.tree))
         self.tree.pack(side='left', fill='both', expand=True, padx=(0,0))
         scrollbar.pack(side='left', fill='y')
         self.tree.tag_configure('unselect_row', background='whitesmoke')

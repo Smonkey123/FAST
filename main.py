@@ -118,7 +118,7 @@ class App:
 
         self.root.iconbitmap("ico\\logo_new.ico")  # 窗体图标
         self.root.call('tk', 'scaling', 96 / 72.0)  # 设置tkinter的缩放因子，使dpi固定为96
-        self.root.title("二次设计辅助工具FAST_V2.2_20260122")
+        self.root.title("二次设计辅助工具FAST_V2.2_20260129")
         self.root.resizable(True, True)  # 设置窗体不可改变大小
         self.body()
         # self.previous_f1_height = None  # 添加一个实例变量保存上次f1的高度
