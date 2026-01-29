@@ -609,7 +609,7 @@ def process():
                     G_real = []
 
                     for i in range(0, len(A)):
-                        if B[i] != 'A' or C[i] != 'Panel':  # 剔除无效数据
+                        if B[i] != 'A' and C[i] != 'Panel' and D[i] != 'Mounting_Panel':  # 剔除无效数据
                             A_real.append(A[i])
                             B_real.append(B[i])
                             C_real.append(C[i])
