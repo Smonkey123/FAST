@@ -312,7 +312,8 @@ def read_sap_item():
                 color_index = 0
                 code_color_map = {}  # 保存 code_number 与颜色的映射
 
-                global sap_ebom_typical, sap_ebom_material, sap_ebom_quantity
+                global sap_ebom_item, sap_ebom_typical, sap_ebom_material, sap_ebom_quantity
+                sap_ebom_item = []
                 sap_ebom_typical = []
                 sap_ebom_material = []
                 sap_ebom_quantity = []
@@ -337,6 +338,7 @@ def read_sap_item():
                                 if bom_result['ET_COMPONENTS']:
                                     for bom_item in bom_result['ET_COMPONENTS']:
                                         if bom_item['STUFE'] == 1:
+                                            sap_ebom_item.append(posnr)
                                             sap_ebom_typical.append(str(item[2]))
                                             sap_ebom_material.append(bom_item['IDNRK'])
                                             sap_ebom_quantity.append(str(int(bom_item['MENGE'])))
@@ -363,6 +365,9 @@ def read_sap_item():
                             if offset == 751 and 'DZP-' in str(item[1]):
                                 DZP_item_list.append(str(item[0]))
                                 DZP_list.append(str(item[1]))
+
+                # for i in range(0, len(sap_ebom_item)):
+                #     print(sap_ebom_item[i], sap_ebom_typical[i],sap_ebom_material[i],sap_ebom_quantity[i])
 
             conn.close()
             if not conn.alive:
@@ -726,65 +731,65 @@ def compare_ebom():
                     bom_col_E.append(str(int(row['Qty'])))
 
             # 1. 把 EPLAN 数据做成 (Typical, PartNumber) -> Qty 的字典
-            eplan_dict = defaultdict(int)  # 同 Typical 同料号已经提前 groupby 累加，这里再保险
-            for t, p, q in zip(bom_col_A, bom_col_D, bom_col_E):
-                eplan_dict[(t, p)] += int(q)
+            eplan_typical_bom = defaultdict(list)
+            for _, row in df2.iterrows():
+                hl = row['Hight-level']
+                pn = row['PartNumber']
+                qty = int(row['Qty'])
+                eplan_typical_bom[hl].append((pn, qty))
 
             # 2. 把 SAP 数据做成同样格式的字典
-            sap_dict = {}
-            for t, p, q in zip(sap_ebom_typical, sap_ebom_material, sap_ebom_quantity):
-                sap_dict[(t, p)] = int(q)
+            sap_item_bom = defaultdict(list)
+            for item, typ, mat, qty in zip(sap_ebom_item,
+                                           sap_ebom_typical,
+                                           sap_ebom_material,
+                                           sap_ebom_quantity):
+                sap_item_bom[(item, typ)].append((mat, int(qty)))
 
-            # 3. 计算三套差异
-            eplan_keys = set(eplan_dict.keys())
-            sap_keys = set(sap_dict.keys())
-
-            # 3.1 EPLAN 有、SAP 无（Typical 一致，料号缺失）
-            missing_in_sap = eplan_keys - sap_keys
-
-            # 3.2 SAP 有、EPLAN 无（Typical 一致，料号多余）
-            #     但料号若在 CRM 表里出现过，则不算多余
-            redundant_in_sap = []
-            for k in sap_keys - eplan_keys:
-                t, p = k
-                if p not in unique_values_set:  # CRM 也没见过，才算真正多余
-                    redundant_in_sap.append(k)
-
-            # 3.3 同 Typical 同料号，数量不一致
-            qty_diff = []
-            for k in eplan_keys & sap_keys:
-                if eplan_dict[k] != sap_dict[k]:
-                    qty_diff.append((*k, eplan_dict[k], sap_dict[k]))
-
-            # 4. 统一输出
             bom_error_flag = 0
 
-            # 4.1 SAP 缺料
-            for t, p in missing_in_sap:
-                qty = eplan_dict[(t, p)]
-                text.insert(tk.INSERT,
-                            f"▲   SAP缺少物料信息：{t}—{p}—{qty}个    【SAP无此料号】\n", 'error')
-                error2_calculator += 1
-                bom_error_flag = 1
+            for (item, typ), sap_lst in sap_item_bom.items():
+                # 找到 EPLAN 里同 Typical 的那份清单
+                eplan_lst = eplan_typical_bom.get(typ, [])
+                # 两边都转成 dict 方便比对
+                sap_dict = defaultdict(int)
+                eplan_dict = defaultdict(int)
+                for mat, qty in sap_lst:
+                    sap_dict[mat] += qty
+                for pn, qty in eplan_lst:
+                    eplan_dict[pn] += qty
 
-            # 4.2 SAP 多料
-            for t, p in redundant_in_sap:
-                qty = sap_dict[(t, p)]
-                text.insert(tk.INSERT,
-                            f"▲   SAP多余物料信息：{t}—{p}—{qty}个    【EPLAN无此料号】\n", 'error')
-                error2_calculator += 1
-                bom_error_flag = 1
+                # 3. 计算三套差异
+                eplan_keys = set(eplan_dict.keys())
+                sap_keys = set(sap_dict.keys())
 
-            # 4.3 数量不一致
-            for t, p, e_qty, s_qty in qty_diff:
-                text.insert(tk.INSERT,
-                            "▲   SAP物料信息为：%s—%s—%s个，EPLAN物料数量为：%s个    【SAP与EPLAN物料数量不一致】\n"
-                            % (t, p, s_qty, e_qty), 'error')
-                error2_calculator += 1
-                bom_error_flag = 1
+                # 3.1 SAP 有、EPLAN 无（且不在 CRM 白名单）
+                for pn in sap_keys - eplan_keys:
+                    if pn not in unique_values_set:
+                        qty = sap_dict[pn]
+                        text.insert(tk.INSERT,
+                                    f"▲   SAP item {item} 多余物料：{typ}—{pn}—{qty}个    【EPLAN无此料号】\n", 'error')
+                        error2_calculator += 1
+                        bom_error_flag = 1
+
+                # 3.2 EPLAN 有、SAP 无
+                for pn in eplan_keys - sap_keys:
+                    qty = eplan_dict[pn]
+                    text.insert(tk.INSERT,
+                                f"▲   SAP item {item} 缺少物料：{typ}—{pn}—{qty}个    【SAP无此料号】\n", 'error')
+                    error2_calculator += 1
+                    bom_error_flag = 1
+
+                # 3.3 同料号数量不一致
+                for pn in eplan_keys & sap_keys:
+                    if eplan_dict[pn] != sap_dict[pn]:
+                        text.insert(tk.INSERT,
+                                    f"▲   SAP item {item} 数量不一致：{typ}—{pn}—SAP{sap_dict[pn]}个，EPLAN{eplan_dict[pn]}个\n", 'error')
+                        error2_calculator += 1
+                        bom_error_flag = 1
 
             if not bom_error_flag:
-                text.insert(tk.INSERT, "EPLAN与SAP物料信息一致\n")
+                text.insert(tk.INSERT, "所有 sap_ebom_item 物料信息与 EPLAN 一致\n")
 
             # for i in range(0, len(bom_col_A)):
             #     if bom_col_A[i] not in sap_ebom_typical:
