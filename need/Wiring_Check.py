@@ -385,7 +385,7 @@ def process():
                                         error_flag = True
 
                                 else:
-                                    if (DATA[i][1] == 'LVD' or DATA[i][1] == 'MV' or DATA[i][1] == 'TR' or DATA[i][1] == 'ITR') and (DATA[i][9] == 'LV' or DATA[i][9] == 'LV.F' or DATA[i][9] == 'LV.M1' or DATA[i][9] == 'LV.M2' or DATA[i][9] == 'LV.R1' or DATA[i][9] == 'LV.R2' or DATA[i][9] == 'LV.L1' or DATA[i][9] == 'LV.L2') and 'X' not in DATA[i][6] and ':RJ12' not in DATA[i][6]:
+                                    if (DATA[i][1] == 'LVD' or DATA[i][1] == 'MV' or DATA[i][1] == 'TR' or DATA[i][1] == 'ITR') and (DATA[i][9] == 'LV' or DATA[i][9] == 'LV.F' or DATA[i][9] == 'LV.M1' or DATA[i][9] == 'LV.M2' or DATA[i][9] == 'LV.R1' or DATA[i][9] == 'LV.R2' or DATA[i][9] == 'LV.L1' or DATA[i][9] == 'LV.L2') and 'X' not in DATA[i][6] and ':RJ12' not in DATA[i][6] and 'GND' not in DATA[i][6]:
                                         text.insert(tk.INSERT, '▲ ' + DATA[i][0] + "柜 " + DATA[i][4] + "(" + DATA[i][1] + ")" + "—" + DATA[i][6] + "(" + DATA[i][9] + ")" + "【跨区域接线，应先经端子过渡】\n", 'error')
                                         error1_calculator += 1
                                         error_flag = True
