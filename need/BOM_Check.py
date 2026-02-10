@@ -725,6 +725,9 @@ def process1():
                 E = []
                 F = []
                 G = []
+                H = []
+                I = []
+                J = []
                 for i in range(2, sheet.max_row + 1):
                     A.append(str(sheet.cell(row=i, column=1).value))  # Hight-level列
                     B.append(str(sheet.cell(row=i, column=2).value))  # Zone列
@@ -733,6 +736,9 @@ def process1():
                     E.append(str(sheet.cell(row=i, column=5).value))  # Qty列
                     F.append(str(sheet.cell(row=i, column=6).value))  # Designation列
                     G.append(str(sheet.cell(row=i, column=7).value))  # Type列
+                    H.append(str(sheet.cell(row=i, column=8).value))  # Description列
+                    I.append(str(sheet.cell(row=i, column=9).value))  # Exist列
+                    J.append(str(sheet.cell(row=i, column=10).value))  # Exist1列
 
                 A_real = []
                 B_real = []
@@ -741,9 +747,12 @@ def process1():
                 E_real = []
                 F_real = []
                 G_real = []
+                H_real = []
+                I_real = []
+                J_real = []
 
                 for i in range(0, len(A)):
-                    if B[i] != 'A' or C[i] != 'Panel':  # 剔除无效数据
+                    if B[i] != 'A' and C[i] != 'Panel' and J[i] != 'YES':  # 剔除无效数据
                         A_real.append(A[i])
                         B_real.append(B[i])
                         C_real.append(C[i])
@@ -751,6 +760,9 @@ def process1():
                         E_real.append(E[i])
                         F_real.append(F[i])
                         G_real.append(G[i])
+                        H_real.append(H[i])
+                        I_real.append(I[i])
+                        J_real.append(J[i])
 
                 # for i in range(0, len(A_real)):
                 A_real_set = list(set(A_real))  # set去重后顺序会改变
