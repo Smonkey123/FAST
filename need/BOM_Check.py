@@ -2312,26 +2312,96 @@ def process1():
                                     cb_voltage_error_flag = True
 
                         elif product_type[i] in ['ZX1.2', 'ZX2']:
-                            if len(cb_type[i].split(';')) > 1:
-                                if len(cb_type[i].split(';')[-1].split(' ')) > 2:
-                                    if switchgear_dimension[i].split('X')[0] == '600' and cb_type[i].split(';')[-1].split(' ')[2] != 'P150':
-                                        text.insert(tk.INSERT, '▲ %s    %s    %s柜：SLD中断路器相间距为%s，应为%s\n' % (switchgear_number[i], typical_type_list[i], abb_panel_number_ori[i], cb_type[i].split(';')[-1].split(' ')[2], 'P150'), 'error')
-                                        error21_calculator += 1
-                                        cb_phasedistance_error_flag = True
-                                    elif switchgear_dimension[i].split('X')[0] == '800' and cb_type[i].split(';')[-1].split(' ')[2] != 'P210':
-                                        text.insert(tk.INSERT, '▲ %s    %s    %s柜：SLD中断路器相间距为%s，应为%s\n' % (switchgear_number[i], typical_type_list[i], abb_panel_number_ori[i], cb_type[i].split(';')[-1].split(' ')[2], 'P210'), 'error')
-                                        error21_calculator += 1
-                                        cb_phasedistance_error_flag = True
-                                    elif switchgear_dimension[i].split('X')[0] == '840' and cb_type[i].split(';')[-1].split(' ')[2] != 'P210':
-                                        text.insert(tk.INSERT, '▲ %s    %s    %s柜：SLD中断路器相间距为%s，应为%s\n' % (switchgear_number[i], typical_type_list[i], abb_panel_number_ori[i], cb_type[i].split(';')[-1].split(' ')[2], 'P210'), 'error')
-                                        error21_calculator += 1
-                                        cb_phasedistance_error_flag = True
+                            def get_cb_info(cb_type_str):
+                                """
+                                从cb_type字符串中提取断路器信息
+                                优先检查最后一个分号后的内容，如果不符合要求则检查倒数第二个
+                                返回: (是否成功, 分割后的列表或None)
+                                """
+                                parts = cb_type_str.split(';')
 
-                                if cb_type[i].split(';')[-1].split(' ')[1][0:2] + 'kV' not in voltage_level[i].replace(' ', '') and cb_type[i].split(';')[-1].split(' ')[1][0:2] + '.5kV' not in voltage_level[i].replace(' ', '') and str(int(cb_type[i].split(';')[-1].split(' ')[1][0:2]) + 2) + 'kV' not in voltage_level[i].replace(' ', '') and str(
-                                        int(cb_type[i].split(';')[-1].split(' ')[1][0:2]) + 2) + '.5kV' not in voltage_level[i].replace(' ', ''):
-                                    text.insert(tk.INSERT, '▲ %s    %s    %s柜：SLD中断路器电压为%s，系统电压为%s\n' % (switchgear_number[i], typical_type_list[i], abb_panel_number_ori[i], cb_type[i].split(';')[-1].split(' ')[1][0:2] + 'kV', voltage_level[i].split('\n')[-1]), 'error')
-                                    error21_calculator += 1
-                                    cb_voltage_error_flag = True
+                                # 辅助函数：检查字符串是否包含 - 和 P
+                                def is_valid_cb_info(s):
+                                    return '-' in s and 'P' in s
+
+                                # 优先检查最后一个 (-1)
+                                if len(parts) >= 1:
+                                    last_part = parts[-1].strip()
+                                    if is_valid_cb_info(last_part):
+                                        split_result = last_part.split(' ')
+                                        if len(split_result) > 2:
+                                            return True, split_result
+
+                                # 如果最后一个不符合，且分号数量>1，检查倒数第二个 (-2)
+                                if len(parts) > 1:
+                                    second_last_part = parts[-2].strip()
+                                    if is_valid_cb_info(second_last_part):
+                                        split_result = second_last_part.split(' ')
+                                        if len(split_result) > 2:
+                                            return True, split_result
+
+                                return False, None
+
+                            if len(cb_type[i].split(';')) > 1:
+                                success, cb_info = get_cb_info(cb_type[i])
+                                if success:
+                                    if len(cb_info) > 2:
+                                        if switchgear_dimension[i].split('X')[0] == '600' and cb_info[2] != 'P150':
+                                            text.insert(tk.INSERT, '▲ %s    %s    %s柜：SLD中断路器相间距为%s，应为%s\n' % (
+                                                switchgear_number[i], typical_type_list[i], abb_panel_number_ori[i],
+                                                cb_info[2], 'P150'), 'error')
+                                            error21_calculator += 1
+                                            cb_phasedistance_error_flag = True
+
+                                        elif switchgear_dimension[i].split('X')[0] == '800' and cb_info[2] != 'P210':
+                                            text.insert(tk.INSERT, '▲ %s    %s    %s柜：SLD中断路器相间距为%s，应为%s\n' % (
+                                                switchgear_number[i], typical_type_list[i], abb_panel_number_ori[i],
+                                                cb_info[2], 'P210'), 'error')
+                                            error21_calculator += 1
+                                            cb_phasedistance_error_flag = True
+
+                                        elif switchgear_dimension[i].split('X')[0] == '840' and cb_info[2] != 'P210':
+                                            text.insert(tk.INSERT, '▲ %s    %s    %s柜：SLD中断路器相间距为%s，应为%s\n' % (
+                                                switchgear_number[i], typical_type_list[i], abb_panel_number_ori[i],
+                                                cb_info[2], 'P210'), 'error')
+                                            error21_calculator += 1
+                                            cb_phasedistance_error_flag = True
+
+                                        # 电压判断部分
+                                    voltage_str = cb_info[1][0:2]
+                                    voltage_check = (
+                                            voltage_str + 'kV' not in voltage_level[i].replace(' ', '') and
+                                            voltage_str + '.5kV' not in voltage_level[i].replace(' ', '') and
+                                            str(int(voltage_str) + 2) + 'kV' not in voltage_level[i].replace(' ', '') and
+                                            str(int(voltage_str) + 2) + '.5kV' not in voltage_level[i].replace(' ', '')
+                                    )
+
+                                    if voltage_check:
+                                        text.insert(tk.INSERT, '▲ %s    %s    %s柜：SLD中断路器电压为%s，系统电压为%s\n' % (
+                                            switchgear_number[i], typical_type_list[i], abb_panel_number_ori[i],
+                                            voltage_str + 'kV', voltage_level[i].split('\n')[-1]), 'error')
+                                        error21_calculator += 1
+                                        cb_voltage_error_flag = True
+
+                                # if len(cb_type[i].split(';')[-1].split(' ')) > 2:
+                                #     if switchgear_dimension[i].split('X')[0] == '600' and cb_type[i].split(';')[-1].split(' ')[2] != 'P150':
+                                #         text.insert(tk.INSERT, '▲ %s    %s    %s柜：SLD中断路器相间距为%s，应为%s\n' % (switchgear_number[i], typical_type_list[i], abb_panel_number_ori[i], cb_type[i].split(';')[-1].split(' ')[2], 'P150'), 'error')
+                                #         error21_calculator += 1
+                                #         cb_phasedistance_error_flag = True
+                                #     elif switchgear_dimension[i].split('X')[0] == '800' and cb_type[i].split(';')[-1].split(' ')[2] != 'P210':
+                                #         text.insert(tk.INSERT, '▲ %s    %s    %s柜：SLD中断路器相间距为%s，应为%s\n' % (switchgear_number[i], typical_type_list[i], abb_panel_number_ori[i], cb_type[i].split(';')[-1].split(' ')[2], 'P210'), 'error')
+                                #         error21_calculator += 1
+                                #         cb_phasedistance_error_flag = True
+                                #     elif switchgear_dimension[i].split('X')[0] == '840' and cb_type[i].split(';')[-1].split(' ')[2] != 'P210':
+                                #         text.insert(tk.INSERT, '▲ %s    %s    %s柜：SLD中断路器相间距为%s，应为%s\n' % (switchgear_number[i], typical_type_list[i], abb_panel_number_ori[i], cb_type[i].split(';')[-1].split(' ')[2], 'P210'), 'error')
+                                #         error21_calculator += 1
+                                #         cb_phasedistance_error_flag = True
+                                #
+                                # if cb_type[i].split(';')[-1].split(' ')[1][0:2] + 'kV' not in voltage_level[i].replace(' ', '') and cb_type[i].split(';')[-1].split(' ')[1][0:2] + '.5kV' not in voltage_level[i].replace(' ', '') and str(int(cb_type[i].split(';')[-1].split(' ')[1][0:2]) + 2) + 'kV' not in voltage_level[i].replace(' ', '') and str(
+                                #         int(cb_type[i].split(';')[-1].split(' ')[1][0:2]) + 2) + '.5kV' not in voltage_level[i].replace(' ', ''):
+                                #     text.insert(tk.INSERT, '▲ %s    %s    %s柜：SLD中断路器电压为%s，系统电压为%s\n' % (switchgear_number[i], typical_type_list[i], abb_panel_number_ori[i], cb_type[i].split(';')[-1].split(' ')[1][0:2] + 'kV', voltage_level[i].split('\n')[-1]), 'error')
+                                #     error21_calculator += 1
+                                #     cb_voltage_error_flag = True
 
                             else:
                                 if len(cb_type[i].split(' ')) > 2:
@@ -2476,7 +2546,11 @@ def process1():
                             if switchgear_number[i] == cbbom_item_data_switchgear_id1[j] and abb_panel_number_ori[i] == cbbom_item_data_panel_number1[j]:
                                 # 处理 cb_type 中的描述
                                 cb_description_parts = cb_type[i].split(';')
-                                sld_description = cb_description_parts[-1] if len(cb_description_parts) > 1 else cb_type[i]
+                                if len(cb_description_parts) > 1:
+                                    sld_description = cb_description_parts[1]
+                                else:
+                                    sld_description = cb_type[i]
+
                                 sld_description_parts = sld_description.split(' ')
 
                                 # 标记用于检查所有部分是否都存在
