@@ -1159,8 +1159,88 @@ def create_xml_file():
             elif 0 in content_exist_list:
                 result = [wB2[i] for i, data in enumerate(content_exist_list) if data == 0]
                 tk.messagebox.showwarning("提示", "BOM表格中,Typical：%s的物料为空\n\n请查看并重新调整EPLAN结构，确保物料能够刷出" % ', '.join(list(set(result))))
-
             else:
+                # 检查同一个站下SO Item的连续性
+                station_so_items = {}
+                for i in range(len(wA2)):
+                    station = wA2[i]
+                    so_item = wE2[i]
+                    if station not in station_so_items:
+                        station_so_items[station] = []
+                    station_so_items[station].append(int(so_item))
+
+                so_item_problem = False
+                problem_stations = []
+                for station, so_items in station_so_items.items():
+                    sorted_so_items = sorted(so_items)
+                    # 检查是否从1开始
+                    if sorted_so_items[0] != 1:
+                        so_item_problem = True
+                        problem_stations.append(station)
+                    # 检查是否有跳号
+                    for i in range(1, len(sorted_so_items)):
+                        if sorted_so_items[i] - sorted_so_items[i-1] != 1:
+                            so_item_problem = True
+                            if station not in problem_stations:
+                                problem_stations.append(station)
+                
+                if so_item_problem:
+                    # 创建自定义对话框
+                    dialog = tk.Toplevel(bg="#eaf1f6", bd=2, borderwidth=2)
+                    dialog.title("SO Item检查")
+                    winw = 500
+                    winh = 200
+                    dialog.geometry("%dx%d" % (winw, winh))
+                    tku.center_window(dialog)
+                    
+                    # 禁用主窗口
+                    root_win.attributes("-disabled", 1)
+                    dialog.protocol("WM_DELETE_WINDOW", lambda: (root_win.attributes("-disabled", 0), dialog.destroy()))
+                    
+                    # 添加提示信息
+                    frame = tk.Frame(dialog, bg="#eaf1f6")
+                    frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
+                    
+                    message = "以下站的SO Item存在问题：\n"
+                    message += ", ".join(problem_stations)
+                    message += "\n\n"
+                    message += "同一个站下，SO Item必须从1开始，且不能有跳号\n"
+                    message += "除非是起始或中间某个Item被Reject，允许”起始不从1开始“或者”中间有跳号“\n\n"
+                    message += "需要修改请点击取消创建按钮，不需要修改请点击继续创建按钮"
+                    
+                    label = tk.Label(frame, text=message, bg="#eaf1f6", fg="black", font=("ABBvoice CNSG", int(12 * h_ratio)), justify='left')
+                    label.pack(fill=tk.BOTH, expand=True)
+                    
+                    # 添加按钮
+                    button_frame = tk.Frame(frame, bg="#eaf1f6")
+                    button_frame.pack(fill=tk.X, pady=10)
+                    
+                    so_item_continue_flag = [False]
+                    
+                    def continue_create():
+                        so_item_continue_flag[0] = True
+                        root_win.attributes("-disabled", 0)
+                        dialog.destroy()
+                    
+                    def cancel_create():
+                        so_item_continue_flag[0] = False
+                        root_win.attributes("-disabled", 0)
+                        dialog.destroy()
+                    
+                    # 左侧：继续创建按钮
+                    continue_button = tk.Button(button_frame, text='继续创建', compound=tk.LEFT, bg="#eaf1f6", font=("ABBvoice CNSG", int(12 * h_ratio)), cursor='hand2', command=continue_create)
+                    continue_button.pack(side=tk.LEFT, fill=tk.BOTH, padx=20)
+                    
+                    # 右侧：取消创建按钮
+                    cancel_button = tk.Button(button_frame, text='取消创建', compound=tk.LEFT, bg="#eaf1f6", font=("ABBvoice CNSG", int(12 * h_ratio)), cursor='hand2', command=cancel_create)
+                    cancel_button.pack(side=tk.RIGHT, fill=tk.BOTH, padx=20)
+                    
+                    # 等待对话框关闭
+                    dialog.wait_window()
+                    
+                    if not so_item_continue_flag[0]:
+                        return
+                
                 switchgearnumber_no_problem_flag = False
                 if len(projectID) == 8 and projectID[0] == '7':
                     confirm_switchgearnumber = tk.messagebox.askquestion("提示", "请确认配置信息中站号是否正确？\n\nA01代表1000行，A02代表2000行，如75150135.14对应的应是A14\n\n如果错误，点击No，修改EPLAN结构重新导BOM\n\n如果正确，点击Yes")
