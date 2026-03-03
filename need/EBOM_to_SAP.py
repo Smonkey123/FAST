@@ -1120,15 +1120,21 @@ def create_xml_file():
             projectID = entry_projectnumber.get()  # 读取文本框内的项目号
 
             Error_flag1 = 0  # 同站下SO Item重复（错误）标志位
+            error_stations1 = []  # 记录出现重复的站点
             for ii in range(0, len(wE2)):
                 for jj in range(0, len(wE2)):
                     if ii != jj:
                         if wE2[ii] == wE2[jj] and wA2[ii] == wA2[jj]:  # 出现了同站下SO Item重复
                             Error_flag1 = 1
+                            if wA2[ii] not in error_stations1:
+                                error_stations1.append(wA2[ii])
             Error_flag2 = 0  # SO Item非法（错误）标志位
+            error_stations2 = []  # 记录出现非法SO Item的站点
             for ii in range(0, len(wE2)):
                 if wE2[ii] == '0' or '-' in wE2[ii] or '.' in wE2[ii] or (not wE2[ii].isdigit()) or wE2[ii][0] == '0':
                     Error_flag2 = 1
+                    if wA2[ii] not in error_stations2:
+                        error_stations2.append(wA2[ii])
 
             content_exist_list = []
             for ii in range(0, len(wA2)):
@@ -1147,9 +1153,9 @@ def create_xml_file():
             elif strftime('%Y-%m-%d %H:%M', localtime(os.stat(outputfile).st_mtime)) != strftime('%Y-%m-%d %H:%M', localtime()):  # 读取XXX-Table.xls修改时间，点击“创建”的时间，如果Table.xls修改时间是旧的，跟点击“创建”的实际时间有差异
                 tk.messagebox.showwarning("提示", "请读取配置信息！")
             elif Error_flag2:
-                tk.messagebox.showwarning("提示", "出现SO Item为0/负数/小数/非数值的情况，请维护为正整数！")
+                tk.messagebox.showwarning("提示", "出现SO Item为0/负数/小数/非数值的情况，请维护为正整数！\n\n涉及站点: %s" % ', '.join(error_stations2))
             elif Error_flag1:
-                tk.messagebox.showwarning("提示", "出现同站SO Item重复的情况，请维护为同站非重复的正整数！")
+                tk.messagebox.showwarning("提示", "出现同站SO Item重复的情况，请维护为同站非重复的正整数！\n\n涉及站点: %s" % ', '.join(error_stations1))
             elif projectID == "" or len(projectID) < 8 or len(projectID) > 9:
                 tk.messagebox.showwarning("提示", "请输入9位/8位样柜项目号！")
             elif len(projectID) == 8 and projectID[0] != '7':
