@@ -33,9 +33,9 @@ def check_separator_plate(pdf_path, td_list, out_path):
             strip_name = string.split("+-")[-1]
             w = page.rect.width
             scale = w / 1207.98
-            print(f"\n{'='*60}")
-            print(f"【第{idx + 1}页】典型名称: {typical_name} | 端子排: {strip_name}")
-            print(f"页面宽度={w:.2f} pt | 缩放比例={scale:.3f}")
+            # print(f"\n{'='*60}")
+            # print(f"【第{idx + 1}页】典型名称: {typical_name} | 端子排: {strip_name}")
+            # print(f"页面宽度={w:.2f} pt | 缩放比例={scale:.3f}")
 
             # ===== 动态参数 =====
             DOT_MIN_W = 5 * scale  # 最小外接框宽（pt）
@@ -85,7 +85,7 @@ def check_separator_plate(pdf_path, td_list, out_path):
 
             if not dots:
                 main_dots = []
-                print(f"【黑点检测】未检测到任何黑点")
+                # print(f"【黑点检测】未检测到任何黑点")
             else:
                 y_vals = np.array([cy for _, cy in dots])
                 uni = np.unique(y_vals)
@@ -104,9 +104,9 @@ def check_separator_plate(pdf_path, td_list, out_path):
                              if abs(cy - main_y) < y_tol_h + Y_TOL]
                 main_dots.sort(key=lambda p: p[0])
                 
-                print(f"【黑点检测】共发现 {len(dots)} 个黑点")
-                print(f"【主轴线筛选】主轴线 y={main_y:.2f} | 容差={y_tol_h + Y_TOL:.2f} | 保留 {len(main_dots)} 个黑点")
-                print(f"【主轴线黑点坐标】{[(f'{x:.2f}', f'{y:.2f}') for x, y in main_dots]}")
+                # print(f"【黑点检测】共发现 {len(dots)} 个黑点")
+                # print(f"【主轴线筛选】主轴线 y={main_y:.2f} | 容差={y_tol_h + Y_TOL:.2f} | 保留 {len(main_dots)} 个黑点")
+                # print(f"【主轴线黑点坐标】{[(f'{x:.2f}', f'{y:.2f}') for x, y in main_dots]}")
 
             # 按 x 升序，保证从左往右
             dots.sort(key=lambda p: p[0])
@@ -138,7 +138,7 @@ def check_separator_plate(pdf_path, td_list, out_path):
                     p0, p1 = fitz.Point(cmd[1]), fitz.Point(cmd[2])
                     black_segments.append((p0, p1))
             
-            print(f"【黑线段检测】共发现 {len(black_segments)} 条黑色线段")
+            # print(f"【黑线段检测】共发现 {len(black_segments)} 条黑色线段")
 
             # 对每条黑线段，找出落在它上的所有黑点
             for p0, p1 in black_segments:
@@ -161,7 +161,7 @@ def check_separator_plate(pdf_path, td_list, out_path):
                         page.draw_circle(fitz.Point(x1, y1), 1, color=(1, 0, 0), width=0.8)
                         page.draw_circle(fitz.Point(x2, y2), 1, color=(1, 0, 0), width=0.8)
 
-                        print(f"【短接片跨端子】{strip_name}:{t1}-{t2} | 长度={seg_len:.2f}pt | 坐标: ({x1:.2f},{y1:.2f}) -> ({x2:.2f},{y2:.2f})")
+                        # print(f"【短接片跨端子】{strip_name}:{t1}-{t2} | 长度={seg_len:.2f}pt | 坐标: ({x1:.2f},{y1:.2f}) -> ({x2:.2f},{y2:.2f})")
 
                         short_list.append({
                             "page": idx + 1,
@@ -180,7 +180,7 @@ def check_separator_plate(pdf_path, td_list, out_path):
                 for a, b in zip(on_line, on_line[1:]):
                     exist_pairs.add((round(a[0], 1), round(a[1], 1), round(b[0], 1), round(b[1], 1)))
             
-            print(f"【线段对统计】已存在的线段端点对: {len(exist_pairs)} 对")
+            # print(f"【线段对统计】已存在的线段端点对: {len(exist_pairs)} 对")
             
             # 与理论相邻黑点对比
             missing_line_count = 0
@@ -189,14 +189,14 @@ def check_separator_plate(pdf_path, td_list, out_path):
                     t1 = find_terminal_number(x1, y1) or "?"
                     t2 = find_terminal_number(x2, y2) or "?"
                     missing_line_count += 1
-                    print(f"【缺线检测】{strip_name}:{t1}-{t2} | 坐标: ({x1:.2f},{y1:.2f}) -> ({x2:.2f},{y2:.2f})")
+                    # print(f"【缺线检测】{strip_name}:{t1}-{t2} | 坐标: ({x1:.2f},{y1:.2f}) -> ({x2:.2f},{y2:.2f})")
 
-            print(f"【缺线统计】共发现 {missing_line_count} 处潜在缺线")
+            # print(f"【缺线统计】共发现 {missing_line_count} 处潜在缺线")
 
             # ------ 4. 在无黑线段上方区域检查字符 X ------
             # 先拿当前页所有单词（含坐标）
             words = page.get_text("words")   # [(x0,y0,x1,y1,"text"), ...]
-            print(f"【文字检测】当前页共 {len(words)} 个单词")
+            # print(f"【文字检测】当前页共 {len(words)} 个单词")
             
             for (x1, y1), (x2, y2) in zip(main_dots, main_dots[1:]):
                 if (round(x1,1), round(y1,1), round(x2,1), round(y2,1)) in exist_pairs:
@@ -210,12 +210,12 @@ def check_separator_plate(pdf_path, td_list, out_path):
                 t2 = find_terminal_number(x2, y2) or "?"
                 
                 if x_list:
-                    print(f"【X标记检查】{strip_name}:{t1}-{t2} | 发现 X 标记，判定为正常隔板")
+                    # print(f"【X标记检查】{strip_name}:{t1}-{t2} | 发现 X 标记，判定为正常隔板")
                     # 可选：把 X 框出来
                     for w in x_list:
                         page.draw_rect(fitz.Rect(w[:4]), color=(0,1,1), width=1.2)
                 else:
-                    print(f"【X标记检查】{strip_name}:{t1}-{t2} | 未发现 X 标记，判定为隔板缺失")
+                    # print(f"【X标记检查】{strip_name}:{t1}-{t2} | 未发现 X 标记，判定为隔板缺失")
                     page.draw_circle(fitz.Point(x1, y1), 1, color=(1, 0, 0), width=0.8)
                     page.draw_circle(fitz.Point(x2, y2), 1, color=(1, 0, 0), width=0.8)
                     page.draw_rect(check_rect, color=(1, 0, 1), width=1.2)
@@ -234,10 +234,10 @@ def check_separator_plate(pdf_path, td_list, out_path):
                 check_rect = fitz.Rect(x, y - x_height, x + MIN_DIST, y)
                 x_list = [w for w in words if w[4] == "X" and fitz.Rect(w[:4]) in check_rect]
                 
-                print(f"【末端检查】端子 {t} | 坐标: ({x:.2f},{y:.2f})")
+                # print(f"【末端检查】端子 {t} | 坐标: ({x:.2f},{y:.2f})")
                 
                 if x_list:
-                    print(f"【末端检查】发现 X 标记，判定为正常")
+                    # print(f"【末端检查】发现 X 标记，判定为正常")
                     for w in x_list:
                         page.draw_rect(fitz.Rect(w[:4]), color=(0, 1, 1), width=1.2)
                 else:
@@ -252,10 +252,10 @@ def check_separator_plate(pdf_path, td_list, out_path):
                                 break
 
                     if near_left:  # 靠近左侧 → 跨页，不报缺失
-                        print(f"【末端检查】跨页判定：黑点在黑线段上且右侧有延伸，跳过")
+                        # print(f"【末端检查】跨页判定：黑点在黑线段上且右侧有延伸，跳过")
                         continue
 
-                    print(f"【末端检查】未发现 X 标记，判定为隔板缺失")
+                    # print(f"【末端检查】未发现 X 标记，判定为隔板缺失")
                     page.draw_circle(fitz.Point(x, y), 1, color=(1, 0, 0), width=0.8)
                     page.draw_rect(check_rect, color=(1, 0, 1), width=1.2)
 
@@ -268,8 +268,8 @@ def check_separator_plate(pdf_path, td_list, out_path):
                     })
 
         pdf.save(out_path)
-        print(f"\n{'='*60}")
-        print(f"【检查完成】短接片跨端子: {len(short_list)} 处 | 隔板缺失: {len(miss_list)} 处")
+        # print(f"\n{'='*60}")
+        # print(f"【检查完成】短接片跨端子: {len(short_list)} 处 | 隔板缺失: {len(miss_list)} 处")
     return {"short": short_list, "missing": miss_list}
 
 
