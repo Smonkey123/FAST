@@ -496,8 +496,31 @@ def process1():
             else:
                 start = time()
                 text.insert(tk.INSERT, '>>>EPLAN版SLD正在识别中...\n')
-                sld_recognition(pdf_file_path, sld_table_path)
-                sld_book = xlrd.open_workbook(sld_table_path, formatting_info=False)
+                try:
+                    sld_recognition(pdf_file_path, sld_table_path)
+                except FileNotFoundError as e:
+                    tk.messagebox.showerror("错误", f"PDF文件不存在！\n\n{str(e)}")
+                    text.insert(tk.INSERT, f'>>>PDF文件不存在: {str(e)}\n')
+                    return
+                except ValueError as e:
+                    tk.messagebox.showerror("错误", f"PDF大纲不符合要求！\n\n{str(e)}")
+                    text.insert(tk.INSERT, f'>>>PDF大纲错误: {str(e)}\n')
+                    return
+                except RuntimeError as e:
+                    tk.messagebox.showerror("错误", f"PDF识别失败！\n\n{str(e)}")
+                    text.insert(tk.INSERT, f'>>>PDF识别失败: {str(e)}\n')
+                    return
+                except Exception as e:
+                    tk.messagebox.showerror("错误", f"PDF识别发生未知错误！\n\n{str(e)}")
+                    text.insert(tk.INSERT, f'>>>PDF识别未知错误: {str(e)}\n')
+                    return
+                
+                try:
+                    sld_book = xlrd.open_workbook(sld_table_path, formatting_info=False)
+                except Exception as e:
+                    tk.messagebox.showerror("错误", f"表格读取失败！\n\n错误原因: {str(e)}\n\n可能的原因:\n1. 表格文件损坏\n2. 文件格式不兼容")
+                    text.insert(tk.INSERT, f'>>>表格读取失败: {str(e)}\n')
+                    return
                 switchgear_number = []
                 typical_type_list = []
                 abb_panel_number = []
@@ -3199,71 +3222,95 @@ def extract_table(page, bbox, table_settings):
 
 def sld_recognition(pdf_file_path, sld_table_path):
     global stem
-    if not os.path.exists(sld_table_path):
-        workbook = xlwt.Workbook()
-        sheet = workbook.add_sheet('Sheet1')
-        workbook.save(sld_table_path)
+    
+    # 1. 检查PDF文件是否存在
+    if not os.path.exists(pdf_file_path):
+        raise FileNotFoundError(f"PDF文件不存在: {pdf_file_path}")
+    
+    # 2. 创建空表格文件（如果不存在）
+    try:
+        if not os.path.exists(sld_table_path):
+            workbook = xlwt.Workbook()
+            sheet = workbook.add_sheet('Sheet1')
+            workbook.save(sld_table_path)
+    except Exception as e:
+        raise RuntimeError(f"创建空表格文件失败: {str(e)}")
+    
     sld_page = []
     sheet_name_list = []
-    # 利用PyPDF2读取pdf文件的大纲
-    with open(pdf_file_path, 'rb') as file:
-        pdf_reader = PyPDF2.PdfReader(file)
-        outlines = pdf_reader.outline
-        if len(outlines) > 3:
+    
+    # 3. 利用PyPDF2读取pdf文件的大纲
+    try:
+        with open(pdf_file_path, 'rb') as file:
+            pdf_reader = PyPDF2.PdfReader(file)
+            outlines = pdf_reader.outline
+            
+            if len(outlines) < 4:
+                raise ValueError("PDF大纲不符合要求，至少需要4级大纲结构")
+            
             for idx, item in enumerate(outlines[3]):
                 title = str(item.get("/Title", ""))
-
                 if "&SLD/" in title and ("单线图" in title or "SINGLE LINE DIAGRAM" in title.upper()):
                     sld_page.append(idx)
                     sheet_name_list.append(title.replace('==', '').replace('/', '_'))
+    
+    except FileNotFoundError:
+        raise
+    except ValueError as e:
+        raise
+    except Exception as e:
+        raise RuntimeError(f"读取PDF大纲失败: {str(e)}")
+    
+    # 4. 检查是否找到有效的SLD页面
+    if not sld_page:
+        raise ValueError("未找到有效的SLD页面（单线图），请检查PDF大纲（Page list）是否包含'&SLD/'和'单线图'或'SINGLE LINE DIAGRAM'")
+    
+    # 5. 利用pdfplumber读取pdf文件的表格
+    try:
+        with pdfplumber.open(pdf_file_path) as pdf:
+            with pd.ExcelWriter(sld_table_path) as writer:
+                for idx, page_num in enumerate(sld_page):
+                    page = pdf.pages[page_num]
+                    pw = page.width
+                    ph = page.height
 
-    # 利用pdfplumber读取pdf文件的表格
-    with pdfplumber.open(pdf_file_path) as pdf:
-        with pd.ExcelWriter(sld_table_path) as writer:
-            for idx, page_num in enumerate(sld_page):
-                page = pdf.pages[page_num]
-                pw = page.width
-                ph = page.height
+                    table_settings = {
+                        "vertical_strategy": "lines",
+                        "horizontal_strategy": "lines",
+                        "explicit_vertical_lines": [],
+                        "explicit_horizontal_lines": [],
+                        "snap_tolerance": 1,
+                        "join_tolerance": 1,
+                        "edge_min_length": 10,
+                        "min_words_vertical": 3,
+                        "min_words_horizontal": 1,
+                        "text_tolerance": 3,
+                        "intersection_tolerance": 3,
+                    }
 
-                table_settings = {
-                    "vertical_strategy": "lines",
-                    "horizontal_strategy": "lines",
-                    "explicit_vertical_lines": [],
-                    "explicit_horizontal_lines": [],
-                    "snap_tolerance": 1,
-                    "join_tolerance": 1,
-                    "edge_min_length": 10,
-                    "min_words_vertical": 3,
-                    "min_words_horizontal": 1,
-                    # "keep_blank_chars": True,    # 当前面策略为text时，才有用
-                    "text_tolerance": 3,
-                    # "text_x_tolerance": None,
-                    # "text_y_tolerance": None,
-                    "intersection_tolerance": 3,
-                    # "intersection_x_tolerance": None,
-                    # "intersection_y_tolerance": None,
-                }
+                    # 提取当前页面的 bbox1 和 bbox2 中的表格
+                    bbox1 = (0, 0, int(pw / 4.0), int(2 * ph / 3.0))
+                    tables_bbox1 = extract_table(page, bbox1, table_settings)
+                    bbox2 = (0, int(ph / 2.0), pw, ph)
+                    tables_bbox2 = extract_table(page, bbox2, table_settings)
 
-                # 提取当前页面的 bbox1 和 bbox2 中的表格
-                bbox1 = (0, 0, int(pw / 4.0), int(2 * ph / 3.0))
-                tables_bbox1 = extract_table(page, bbox1, table_settings)
-                bbox2 = (0, int(ph / 2.0), pw, ph)
-                tables_bbox2 = extract_table(page, bbox2, table_settings)
+                    # 创建一个空 DataFrame，用于存储当前页面的合并后的表格数据
+                    merged_tables = pd.DataFrame()
 
-                # 创建一个空 DataFrame，用于存储当前页面的合并后的表格数据
-                merged_tables = pd.DataFrame()
+                    # 将 bbox1 的表格添加到 merged_tables 的第一列
+                    for table in tables_bbox1:
+                        merged_tables = pd.concat([merged_tables, table], axis=1)
 
-                # 将 bbox1 的表格添加到 merged_tables 的第一列
-                for table in tables_bbox1:
-                    merged_tables = pd.concat([merged_tables, table], axis=1)
+                    # 将 bbox2 的表格添加到 merged_tables 的后面列
+                    for table in tables_bbox2:
+                        merged_tables = pd.concat([merged_tables, table], axis=1)
 
-                # 将 bbox2 的表格添加到 merged_tables 的后面列
-                for table in tables_bbox2:
-                    merged_tables = pd.concat([merged_tables, table], axis=1)
-
-                # 将当前页面的合并后的表格数据保存到当前页面的工作表中
-                sheet_name = sheet_name_list[idx]
-                merged_tables.to_excel(writer, sheet_name=sheet_name, index=False)
+                    # 将当前页面的合并后的表格数据保存到当前页面的工作表中
+                    sheet_name = sheet_name_list[idx]
+                    merged_tables.to_excel(writer, sheet_name=sheet_name, index=False)
+    
+    except Exception as e:
+        raise RuntimeError(f"提取PDF表格并保存失败: {str(e)}")
 
 
 def attribute_get(Panel_file_path, Panel_data_file_path, Panel_Size_file_path):

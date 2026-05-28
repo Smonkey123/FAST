@@ -503,13 +503,19 @@ def selectpath():
         terminalfile = os.path.join(os.path.dirname(filepath), truename + '-Terminal list.xlsx')  # XXX-Terminal list.xlsx
 
         sld_file = os.path.join(os.path.dirname(filepath), truename + '-SLD tables.xls')
+        table_col_A = ['', '']  # 默认值
         if os.path.exists(sld_file):
-            sld_book = xlrd.open_workbook(sld_file)  # 加载XXX-SLD tables.xls表格
-            sld_worksheet = sld_book.sheet_by_index(0)
-
-            table_col_A = sld_worksheet.col_values(colx=0, start_rowx=1, end_rowx=None)
-        else:
-            table_col_A = ['', '']
+            try:
+                sld_book = xlrd.open_workbook(sld_file)  # 加载XXX-SLD tables.xls表格
+                sld_worksheet = sld_book.sheet_by_index(0)
+                table_col_A = sld_worksheet.col_values(colx=0, start_rowx=1, end_rowx=None)
+                
+                # 确保table_col_A至少有2个元素，防止后续访问table_col_A[1]时索引越界
+                while len(table_col_A) < 2:
+                    table_col_A.append('')
+            except Exception as e:
+                # 读取失败时使用默认值
+                table_col_A = ['', '']
 
         if os.path.exists(terminalfile):
             book = load_workbook(terminalfile)
@@ -1045,17 +1051,23 @@ def discontinue_command():
     double_check_bom_no_problem_flag = False
     top.destroy()
     root_win.attributes("-disabled", 0)
+    root_win.lift()
+    root_win.focus_force()
 
 def continue_command():
     global double_check_bom_no_problem_flag
     double_check_bom_no_problem_flag = True
     top.destroy()
     root_win.attributes("-disabled", 0)
+    root_win.lift()
+    root_win.focus_force()
     generate_xml_files()
 
 def allow_main_window():
     top.destroy()
     root_win.attributes("-disabled", 0)
+    root_win.lift()
+    root_win.focus_force()
 
 
 # ”创建“按钮
@@ -1144,6 +1156,65 @@ def create_xml_file():
                         content_exist = 1
                 content_exist_list.append(content_exist)
 
+            # 检测重复的物料块（支持连续重复和非连续重复）
+            duplicate_info = []  # 存储重复信息用于提示
+            if len(wA1) >= 4:  # 至少需要4行才能检测重复块
+                # 1. 构建每行的唯一标识（使用多列组合）
+                row_signatures = []
+                for i in range(len(wA1)):
+                    # 使用Hight-level+DT+PartNumber+Qty+Designation作为行标识
+                    sig = (wA1[i], wC1[i], wD1[i], wE1[i], wF1[i])
+                    row_signatures.append(sig)
+                
+                # 2. 检测连续重复的块
+                # 使用滑动窗口方式，从长到短查找重复序列
+                min_block_length = 3  # 最小重复块长度（行数）
+                max_block_length = len(wA1) // 2  # 最大可能的重复块长度
+                
+                for block_len in range(max_block_length, min_block_length - 1, -1):
+                    # 记录已经发现的重复块起始位置，避免重复报告
+                    found_positions = set()
+                    
+                    for start_pos in range(len(wA1) - block_len * 2 + 1):
+                        # 当前块
+                        current_block = tuple(row_signatures[start_pos:start_pos + block_len])
+                        
+                        # 检查后面是否有相同的块
+                        for search_pos in range(start_pos + block_len, len(wA1) - block_len + 1):
+                            compare_block = tuple(row_signatures[search_pos:search_pos + block_len])
+                            
+                            if current_block == compare_block:
+                                # 检查是否已经报告过这个重复
+                                if (start_pos, search_pos) not in found_positions:
+                                    duplicate_info.append({
+                                        'hl': wA1[start_pos],
+                                        'dt': wC1[start_pos],
+                                        'first_start': start_pos + 2,
+                                        'first_end': start_pos + block_len + 1,
+                                        'second_start': search_pos + 2,
+                                        'second_end': search_pos + block_len + 1,
+                                        'length': block_len
+                                    })
+                                    found_positions.add((start_pos, search_pos))
+                                # 找到一个重复就够了，继续找更长的块
+                                break
+                
+                # 3. 去重：合并重叠的重复报告
+                # 按起始位置排序
+                duplicate_info.sort(key=lambda x: (x['first_start'], x['second_start']))
+                # 移除重复的报告
+                unique_info = []
+                for info in duplicate_info:
+                    is_duplicate = False
+                    for existing in unique_info:
+                        # 如果起始位置相同则视为重复报告
+                        if info['first_start'] == existing['first_start'] and info['second_start'] == existing['second_start']:
+                            is_duplicate = True
+                            break
+                    if not is_duplicate:
+                        unique_info.append(info)
+                duplicate_info = unique_info
+
             if '-BOM' not in stem:
                 tk.messagebox.showwarning("提示", "请选择XXX-BOM.xlsx文件！")
             elif combobox.get() == '':  # 未选取端子排类型
@@ -1165,6 +1236,18 @@ def create_xml_file():
             elif 0 in content_exist_list:
                 result = [wB2[i] for i, data in enumerate(content_exist_list) if data == 0]
                 tk.messagebox.showwarning("提示", "BOM表格中,Typical：%s的物料为空\n\n请查看并重新调整EPLAN结构，确保物料能够刷出" % ', '.join(list(set(result))))
+            elif all(item != 'YES' for item in wJ1):
+                tk.messagebox.showwarning("提示", "BOM表格中Exist1列没有任何'YES'值！\n\n请在EPLAN中进行以下操作：\n1. 打开 File → Settings...\n2. 选择 Projects → 项目号 → Translation → General\n3. 在Translation下添加语言项 en_US (English(USA))\n4. 重新导出BOM表格")
+            elif duplicate_info:
+                max_display = 5  # 最多显示5条重复信息
+                error_msg = f"BOM表格中发现 {len(duplicate_info)} 处重复的物料块！\n\n"
+                for i, info in enumerate(duplicate_info[:max_display]):
+                    error_msg += f"{i+1}. Typical: {info['hl']}, DT: {info['dt']}\n"
+                    error_msg += f"   位置: 第{info['first_start']}-{info['first_end']}行 与 第{info['second_start']}-{info['second_end']}行\n"
+                if len(duplicate_info) > max_display:
+                    error_msg += f"\n...还有 {len(duplicate_info) - max_display} 处重复未显示"
+                error_msg += f"\n\n错误原因：{info['hl']}在多个站出现，未设置共用图套，也未进行图套扩展"
+                tk.messagebox.showwarning("提示", error_msg)
             else:
                 # 检查同一个站下SO Item的连续性
                 station_so_items = {}

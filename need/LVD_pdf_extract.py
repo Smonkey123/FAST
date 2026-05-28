@@ -101,7 +101,7 @@ def get_rule_bbox(rule_flag, w, h):
     if bbox is None:
         return None
     x0, top, x1, bottom = bbox
-    return (x0 * w, top * h, x1 * w, bottom * h)
+    return (x0 * w, top * h, x1 * w, bottom * h)    # 1/16w,1/24h,1/2w,5/6h
 
 def apply_rule(page, rule_flag, w, h):
     bbox = get_rule_bbox(rule_flag, w, h)
@@ -195,7 +195,7 @@ def extract_device_from_pdf(pdf_path):
 
 if __name__ == "__main__":
     # 使用示例
-    pdf_path = '504556032.pdf'  # 请替换为你的PDF文件路径
+    pdf_path = r'C:\Temp\504493619-Files\504493619.pdf'  # 请替换为你的PDF文件路径
 
     all_info = extract_device_from_pdf(pdf_path)
 
