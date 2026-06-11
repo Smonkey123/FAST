@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "FAST_V2.2"
-#define MyAppVersion "20260116"
+#define MyAppVersion "20260303"
 #define MyAppPublisher "xiaoqing.gao@cn.abb.com"
 #define MyAppExeName "FAST_V2.2.exe"
 #define MyAppAssocName MyAppName + " File"
@@ -12,7 +12,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{6FD66120-213D-4E3F-9C8B-14EECAEEEC2F}
+AppId={{04557AF3-F5B3-450F-AD35-59AF8DA61CBC}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}

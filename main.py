@@ -1148,7 +1148,7 @@ class App:
         return self._welcome_pic
 
     def about_help(self, event):
-        os.startfile(os.path.abspath('J:\\Engineering\\ShareFolder\\new_ABB_Production_Tools\\Pd\\document\\二次设计辅助工具使用说明书V2.2.pdf'))
+        os.startfile(os.path.abspath('J:\\Engineering\\ShareFolder\\new_ABB_Production_Tools\\Pd\\document\\二次设计辅助工具使用说明书V2.3.pdf'))
 
     def about_feedback(self, event):
         webbrowser.open("https://abb.sharepoint.com/:x:/r/sites/CNDMXSWGProjectPMSE/_layouts/15/Doc.aspx?sourcedoc=%7B4CF78210-B528-443A-A14A-4A5450AF965C%7D&file=FAST%E4%BD%BF%E7%94%A8%E5%8F%8D%E9%A6%88%E6%94%B6%E9%9B%86%E8%A1%A8.xlsx&action=default&mobileredirect=true")
