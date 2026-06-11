@@ -19,6 +19,7 @@ import need.SAP_to_EBOM as EBOM_Export
 
 import need.Project_Information_Manage as Information_Manage
 import need.SAP_Item_View as Item_Info_View
+import need.SAP_LOG_Analyzer as SAP_Log_Analyzer
 
 import need.MVE_Panel_Size as Panel_Size_Check2
 import need.MVE_CTPT as Param_CTPT_Check
@@ -26,6 +27,7 @@ import need.MVE_CTPT as Param_CTPT_Check
 import os, glob, shutil
 import sys
 import ctypes
+import subprocess
 from tkinter import Toplevel
 import wmi
 import winreg
@@ -118,7 +120,7 @@ class App:
 
         self.root.iconbitmap("ico\\logo_new.ico")  # 窗体图标
         self.root.call('tk', 'scaling', 96 / 72.0)  # 设置tkinter的缩放因子，使dpi固定为96
-        self.root.title("二次设计辅助工具FAST_V2.2_20260303")
+        self.root.title("二次设计辅助工具FAST_V2.3_20260611")
         self.root.resizable(True, True)  # 设置窗体不可改变大小
         self.body()
         # self.previous_f1_height = None  # 添加一个实例变量保存上次f1的高度
@@ -434,6 +436,7 @@ class App:
         app_tree.insert('', END, 'Fun2', text=' 设计', image=funlist)
         app_tree.insert('', END, 'Fun3', text=' 物料', image=funlist)
         app_tree.insert('', END, 'Fun4', text=' 信息', image=funlist)
+        app_tree.insert('', END, 'Fun5', text=' 其他', image=funlist)
         app_tree.insert('Fun1', END, text=' MVE预配置', image=nav_mve)
         #app_tree.insert('Fun1', END, text='CheckList导出')
         app_tree.insert('Fun1', END, text=' DesignList导出', image=nav_designlist)
@@ -452,6 +455,9 @@ class App:
         app_tree.insert('Fun4', END, text=' 图纸意见传递', image=nav_comments)
         app_tree.insert('Fun4', END, text=' 使用情况统计', image=nav_user_info)
 
+        app_tree.insert('Fun5', END, text=' BOM导SAP日志分析', image=nav_bom_check)
+        app_tree.insert('Fun5', END, text=' DataSheet识别对比', image=nav_bom_export)
+
         app_tree.bind('<Double-1>', self.open_all_menu)
         app_tree.pack(side=tk.LEFT, fill=tk.Y, expand=True, anchor='w', padx=0)
 
@@ -459,6 +465,7 @@ class App:
         app_tree.item('Fun2', open=True)
         app_tree.item('Fun3', open=True)
         app_tree.item('Fun4', open=True)
+        app_tree.item('Fun5', open=True)
 
         tips = {
             'I001': ".mve文件导入MVE软件前的快速读取和配置",
@@ -469,11 +476,13 @@ class App:
             'I006': "基于报表对原理接线进行检查",
             'I007': "基于报表和图纸对BOM进行检查",
             'I008': "基于报表实现快速导EBOM",
-            "I009": "基于SAP对断路器选配、BOM清单进行查阅、对比",
+            "I009": "基于SAP对柜体/断路器/手车选配、EBOM清单进行查阅、对比",
             "I00A": "基于EPLAN和SAP进行配置和物料对比",
             "I00B": "项目基础数据库",
             "I00C": "DD与PM/PE之间传递图纸意见",
             "I00D": "用户使用情况汇总展示",
+            "I00E": "对多次导EBOM的CI、Qty、柜号、描述等进行汇总，方便分析",
+            "I00F": "DataSheet表单识别和EPLAN属性对比"
         }
         TvTooltip(app_tree, tips)
 
@@ -841,16 +850,18 @@ class App:
 
         if row_t == '' and column_t == '#0':    # 点击列标题，进行各行项目全局展开/合并
             # 当单元全开时，点击就全关；非全开，点击就全开
-            if tree.item('Fun1')['open'] == 1 and tree.item('Fun2')['open'] == 1 and tree.item('Fun3')['open'] == 1 and tree.item('Fun4')['open'] == 1:
+            if tree.item('Fun1')['open'] == 1 and tree.item('Fun2')['open'] == 1 and tree.item('Fun3')['open'] == 1 and tree.item('Fun4')['open'] == 1 and tree.item('Fun5')['open'] == 1:
                 tree.item('Fun1', open=not tree.item('Fun1')['open'])
                 tree.item('Fun2', open=not tree.item('Fun2')['open'])
                 tree.item('Fun3', open=not tree.item('Fun3')['open'])
                 tree.item('Fun4', open=not tree.item('Fun4')['open'])
+                tree.item('Fun5', open=not tree.item('Fun5')['open'])
             else:
                 tree.item('Fun1', open=True)
                 tree.item('Fun2', open=True)
                 tree.item('Fun3', open=True)
                 tree.item('Fun4', open=True)
+                tree.item('Fun5', open=True)
             tk.Label(app_frame, text='欢迎使用二次设计辅助工具', bg="white", fg="black", height=int(2*h_ratio), font=("ABBvoice CNSG", int(30 * h_ratio), "bold")).pack(side=tk.TOP, expand=True, fill=tk.BOTH)
 
             pic_path = self._ensure_welcome_pic()
@@ -975,6 +986,57 @@ class App:
 
                 im.configure(bg="#c9dbe9")
                 im.pack(side=tk.TOP, expand=True, fill=tk.BOTH)
+                
+                if row_t == 'I00E' and column_t == '#0':
+                    # if f1_visiable:
+                    #     f1.pack_forget()
+                    #     f1_visiable = False
+                    logging.info("Access the subfunction: SAP LOG Analyzer")
+                    # 将主窗口作为父窗口传递，使子窗口成为 Toplevel
+                    SAP_Log_Analyzer.gui_main(self.root)
+
+                if row_t == 'I00F' and column_t == '#0':
+                    # if f1_visiable:
+                    #     f1.pack_forget()
+                    #     f1_visiable = False
+                    logging.info("Access the subfunction: DataSheet")
+                    # 调用主程序同级文件夹 DrawingMaster_DS 下的 DrawingMaster_DS.exe
+                    exe_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "DrawingMaster_DS", "DrawingMaster_DS.exe")
+                    exe_name = os.path.basename(exe_path)
+                    
+                    if os.path.exists(exe_path):
+                        # 检查是否已经有该进程在运行
+                        running_process = None
+                        for proc in psutil.process_iter(['name', 'exe']):
+                            try:
+                                if proc.info['name'] == exe_name and proc.info['exe'] == exe_path:
+                                    running_process = proc
+                                    break
+                            except (psutil.NoSuchProcess, psutil.AccessDenied):
+                                pass
+                        
+                        if running_process:
+                            # 如果进程已运行，尝试激活其窗口
+                            logging.info(f"DataSheet 程序已在运行，尝试激活窗口")
+                            try:
+                                # 使用 Windows API 激活窗口
+                                user32 = ctypes.WinDLL('user32', use_last_error=True)
+                                hwnd = user32.FindWindowW(None, "DrawingMaster_DS_V1.0_20260605—DataSheet参数提取及对比工具")
+                                if hwnd:
+                                    user32.ShowWindow(hwnd, 9)  # SW_RESTORE = 9
+                                    user32.SetForegroundWindow(hwnd)
+                                else:
+                                    # 如果找不到主窗口，显示提示
+                                    tk.messagebox.showinfo("提示", "DataSheet 程序已在运行中")
+                            except Exception as e:
+                                logging.error(f"激活窗口失败: {e}")
+                                tk.messagebox.showinfo("提示", "DataSheet 程序已在运行中")
+                        else:
+                            # 如果进程未运行，启动新实例
+                            subprocess.Popen([exe_path])
+                            logging.info(f"启动 DataSheet 程序：{exe_path}")
+                    else:
+                        tk.messagebox.showerror("错误", f"找不到 DataSheet 程序:\n{exe_path}")
 
     # def setup_ui(self, f0):
     #     self.labels = []
@@ -1059,6 +1121,7 @@ class App:
             tree.item('Fun2', open=True)
             tree.item('Fun3', open=True)
             tree.item('Fun4', open=True)
+            tree.item('Fun5', open=True)
 
             tk.Label(app_frame, text='欢迎使用二次设计辅助工具', bg="#c9dbe9", fg="black", height=int(2 * h_ratio), font=("ABBvoice CNSG", int(30 * h_ratio), "bold")).pack(side=tk.TOP, expand=True, fill=tk.BOTH)
 

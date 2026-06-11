@@ -1126,7 +1126,8 @@ def on_double_click(event):
     base = (int(text) // 1000) * 1000
     offset = int(text) - base
 
-    if (501 <= offset <= 549 and ('CDX' in str(values[0]) or 'GCE' in str(values[0]) or 'HD4' in str(values[0]))):
+    if 1 <= offset <= 549:
+    # if (501 <= offset <= 549 and ('CDX' in str(values[0]) or 'GCE' in str(values[0]) or 'HD4' in str(values[0]))):
         # root_win.attributes("-disabled", 1)
         global top1
         top1 = tk.Toplevel()
@@ -1140,7 +1141,7 @@ def on_double_click(event):
         f1 = tk.Frame(top1, bg="#eaf1f6", bd=0)
         f1.pack(side=tk.TOP, fill=tk.X)
 
-        top1.title(f'{text}_{str(values[0])}_断路器选配，SAP未选配属性不显示')
+        top1.title(f'{text}_{str(values[0])}_柜体/断路器/手车选配，SAP未选配属性不显示')
 
         scrollbar_cbbom = tk.Scrollbar(f1)
 
@@ -1168,6 +1169,7 @@ def on_double_click(event):
 
                 if cb_configuration_result['ET_CONF_OUT']:
                     for confi_item in cb_configuration_result['ET_CONF_OUT']:
+                        # print(confi_item)
                         Char_description = confi_item['ATBEZ']
                         Char_value = confi_item['ATWTB']
                         if 'VDN_' not in Char_description and '_TABLE' not in Char_description:

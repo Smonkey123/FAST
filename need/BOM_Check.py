@@ -531,6 +531,7 @@ def process1():
                 cb_type = []
                 control_source_voltage = []
                 charge_source_voltage = []
+                heater_led_source_voltage = []
 
                 for sheet in sld_book.sheets():
                     sheet_name = sheet.name
@@ -589,6 +590,13 @@ def process1():
                         else:
                             row_charge = 9
 
+                    for row in range(1, num_rows):
+                        if '加热' in sheet.cell_value(row, 0) or 'ILLUMINATION AND' in sheet.cell_value(row, 0):
+                            row_illumination = row
+                            break
+                        else:
+                            row_illumination = 8
+
                     def is_valid_string(s):
                         if s == '':
                             return False
@@ -623,6 +631,7 @@ def process1():
                             cb_type.append(sheet.cell_value(row_cb, col))
                             control_source_voltage.append(sheet.cell_value(row_control, 0))
                             charge_source_voltage.append(sheet.cell_value(row_charge, 0))
+                            heater_led_source_voltage.append(sheet.cell_value(row_illumination, 0))
 
                 # print(product_type)
                 # print(switchgear_number)
@@ -633,6 +642,7 @@ def process1():
                 # print(cb_type)
                 # print(control_source_voltage)
                 # print(charge_source_voltage)
+                # print(heater_led_source_voltage)
 
                 for i in range(0, len(abb_panel_number)):
                     abb_panel_number[i] = abb_panel_number[i] + ';'
@@ -700,8 +710,8 @@ def process1():
                 # print(dataframe_groupby)
 
                 global dataframe_groupby_rev
-                dataframe_rev = pd.DataFrame({'A': switchgear_number, 'B': typical_type_list, 'C': abb_panel_number, 'D': switchgear_dimension, 'E': product_type, 'F': voltage_level, 'G': cb_type, 'H': control_source_voltage, 'I': charge_source_voltage})
-                dataframe_groupby_rev = dataframe_rev.groupby(['A', 'B']).agg({'C': 'sum', 'D': unique_concatenate, 'E': unique_concatenate, 'F': unique_concatenate, 'G': unique_concatenate, 'H': unique_concatenate, 'I': unique_concatenate}).reset_index()
+                dataframe_rev = pd.DataFrame({'A': switchgear_number, 'B': typical_type_list, 'C': abb_panel_number, 'D': switchgear_dimension, 'E': product_type, 'F': voltage_level, 'G': cb_type, 'H': control_source_voltage, 'I': charge_source_voltage, 'J': heater_led_source_voltage})
+                dataframe_groupby_rev = dataframe_rev.groupby(['A', 'B']).agg({'C': 'sum', 'D': unique_concatenate, 'E': unique_concatenate, 'F': unique_concatenate, 'G': unique_concatenate, 'H': unique_concatenate, 'I': unique_concatenate, 'J': unique_concatenate}).reset_index()
 
                 # print(dataframe_groupby_rev)
 
@@ -1496,29 +1506,85 @@ def process1():
                     if not error_CAP_divider_flag:
                         text.insert(tk.INSERT, '无AIS容性分压装置物料号问题\n')
 
-                # 16、低压室照明灯物料号检查
-                text.insert(tk.INSERT, '\n【16】EBOM中低压室照明灯物料号正在检查中...\n')
+                # 16、照明灯物料号和定位检查
+                text.insert(tk.INSERT, '\n【16】EBOM中照明灯物料号和定位正在检查中...\n')
                 error_LVC_LED_flag = False
+                error_CA_LED_flag = False
 
                 for i in range(0, len(A_real_set)):
                     for j in range(0, len(A_real)):
                         if A_real_set[i] == A_real[j]:
-                            if (C_real[j][0:2] == 'EA' or C_real[j][0:2] == 'EL') and B_real[j] in ['LV', 'LV.F', 'LV.M1', 'LV.M2', 'LV.R1', 'LV.R2', 'LV.L1', 'LV.L2']:
+                            if C_real[j][0:2] == 'EA' or C_real[j][0:2] == 'EL':
                                 spec_product_type = ''
                                 for k in range(0, len(dataframe_groupby['A'])):
                                     if A_real[j] == dataframe_groupby['B'][k]:
                                         spec_product_type = str(dataframe_groupby['E'][k])
+                                        spec_led_voltage = str(dataframe_groupby_rev['J'][k])
                                         break
-                                if spec_product_type in ['ZVC', '500', '550', 'Beni', 'ZS1', 'ZS3.2'] and D_real[j] not in ['L-CL10-1C-W-AA', 'L-CL10-1C-W-AB', 'L-CL10-1C-W-AE']:
-                                    text.insert(tk.INSERT, '▲ %s    AIS的低压室照明灯物料号应为%s\n' % (A_real_set[i], 'L-CL10-1C-W-AA，-AB，-AE'), 'error')
-                                    error16_calculator += 1
-                                    error_LVC_LED_flag = True
+                                if spec_product_type in ['ZVC', '500', '550', 'Beni', 'ZS1', 'ZS3.2']:
+                                    # 低压室照明灯
+                                    if D_real[j] == 'L-CL10-1C-W-AA' and B_real[j] not in ['LV', 'LV.F', 'LV.M1', 'LV.M2', 'LV.R1', 'LV.R2', 'LV.L1', 'LV.L2']:
+                                        text.insert(tk.INSERT, '▲ %s    AIS的低压室照明灯定位应为LV，实际为%s\n' % (A_real_set[i], B_real[j]), 'error')
+                                        error16_calculator += 1
+                                        error_LVC_LED_flag = True
+                                    if D_real[j] == 'L-CL10-1C-W-AA' and '220' not in spec_led_voltage and '230' not in spec_led_voltage and '240' not in spec_led_voltage and '250' not in spec_led_voltage:
+                                        text.insert(tk.INSERT, '▲ %s    AIS的低压室照明灯物料%s(电源220-250V)，与照明电源等级不符\n' % (A_real_set[i], 'L-CL10-1C-W-AA'), 'error')
+                                        error16_calculator += 1
+                                        error_LVC_LED_flag = True
+                                    if D_real[j] == 'L-CL10-1C-W-AB' and B_real[j] not in ['LV', 'LV.F', 'LV.M1', 'LV.M2', 'LV.R1', 'LV.R2', 'LV.L1', 'LV.L2']:
+                                        text.insert(tk.INSERT, '▲ %s    AIS的低压室照明灯定位应为LV，实际为%s\n' % (A_real_set[i], B_real[j]), 'error')
+                                        error16_calculator += 1
+                                        error_LVC_LED_flag = True
+                                    if D_real[j] == 'L-CL10-1C-W-AB' and '110' not in spec_led_voltage:
+                                        text.insert(tk.INSERT, '▲ %s    AIS的低压室照明灯物料%s(电源110V)，与照明电源等级不符\n' % (A_real_set[i], 'L-CL10-1C-W-AB'), 'error')
+                                        error16_calculator += 1
+                                        error_LVC_LED_flag = True
+                                    if D_real[j] == 'L-CL10-1C-W-AE' and B_real[j] not in ['LV', 'LV.F', 'LV.M1', 'LV.M2', 'LV.R1', 'LV.R2', 'LV.L1', 'LV.L2']:
+                                        text.insert(tk.INSERT, '▲ %s    AIS的低压室照明灯定位应为LV，实际为%s\n' % (A_real_set[i], B_real[j]), 'error')
+                                        error16_calculator += 1
+                                        error_LVC_LED_flag = True
+                                    if D_real[j] == 'L-CL10-1C-W-AE' and '120' not in spec_led_voltage:
+                                        text.insert(tk.INSERT, '▲ %s    AIS的低压室照明灯物料%s(电源120V)，与照明电源等级不符\n' % (A_real_set[i], 'L-CL10-1C-W-AE'), 'error')
+                                        error16_calculator += 1
+                                        error_LVC_LED_flag = True
+                                    # 电缆室照明灯
+                                    if D_real[j] == 'L-CL10-1C-W-AA-CA' and B_real[j] not in 'MV':
+                                        text.insert(tk.INSERT, '▲ %s    AIS的电缆室照明灯定位应为MV，实际为%s\n' % (A_real_set[i], B_real[j]), 'error')
+                                        error16_calculator += 1
+                                        error_CA_LED_flag = True
+                                    if D_real[j] == 'L-CL10-1C-W-AA-CA' and '220' not in spec_led_voltage and '230' not in spec_led_voltage and '240' not in spec_led_voltage and '250' not in spec_led_voltage:
+                                        text.insert(tk.INSERT, '▲ %s    AIS的电缆室照明灯物料%s(电源220-250V)，与照明电源等级不符\n' % (A_real_set[i], 'L-CL10-1C-W-AA-CA'), 'error')
+                                        error16_calculator += 1
+                                        error_CA_LED_flag = True
+                                    if D_real[j] == 'L-CL10-1C-W-AB-CA' and B_real[j] not in 'MV':
+                                        text.insert(tk.INSERT, '▲ %s    AIS的电缆室照明灯定位应为MV，实际为%s\n' % (A_real_set[i], B_real[j]), 'error')
+                                        error16_calculator += 1
+                                        error_CA_LED_flag = True
+                                    if D_real[j] == 'L-CL10-1C-W-AB-CA' and '110' not in spec_led_voltage:
+                                        text.insert(tk.INSERT, '▲ %s    AIS的电缆室照明灯物料%s(电源110V)，与照明电源等级不符\n' % (A_real_set[i], 'L-CL10-1C-W-AB-CA'), 'error')
+                                        error16_calculator += 1
+                                        error_CA_LED_flag = True
+                                    if D_real[j] == 'L-CL10-1C-W-AE-CA' and B_real[j] not in 'MV':
+                                        text.insert(tk.INSERT, '▲ %s    AIS的电缆室照明灯定位应为MV，实际为%s\n' % (A_real_set[i], B_real[j]), 'error')
+                                        error16_calculator += 1
+                                        error_CA_LED_flag = True
+                                    if D_real[j] == 'L-CL10-1C-W-AE-CA' and '120' not in spec_led_voltage:
+                                        text.insert(tk.INSERT, '▲ %s    AIS的电缆室照明灯物料%s(电源120V)，与照明电源等级不符\n' % (A_real_set[i], 'L-CL10-1C-W-AE-CA'), 'error')
+                                        error16_calculator += 1
+                                        error_CA_LED_flag = True
+
                                 elif spec_product_type not in ['ZVC', '500', '550', 'Beni', 'ZS1', 'ZS3.2'] and D_real[j] in ['L-CL10-1C-W-AA', 'L-CL10-1C-W-AB', 'L-CL10-1C-W-AE']:
                                     text.insert(tk.INSERT, '▲ %s    GIS的低压室照明灯物料号不能为%s\n' % (A_real_set[i], 'L-CL10-1C-W-AA，-AB，-AE'), 'error')
                                     error16_calculator += 1
                                     error_LVC_LED_flag = True
-                if not error_LVC_LED_flag:
-                    text.insert(tk.INSERT, '无低压室照明灯物料号问题\n')
+
+                                elif spec_product_type not in ['ZVC', '500', '550', 'Beni', 'ZS1', 'ZS3.2'] and D_real[j] in ['L-CL10-1C-W-AA-CA', 'L-CL10-1C-W-AB-CA', 'L-CL10-1C-W-AE-CA']:
+                                    text.insert(tk.INSERT, '▲ %s    GIS的电缆室照明灯物料号不能为%s\n' % (A_real_set[i], 'L-CL10-1C-W-AA-CA，-AB-CA，-AE-CA'), 'error')
+                                    error16_calculator += 1
+                                    error_CA_LED_flag = True
+
+                if not error_LVC_LED_flag and not error_CA_LED_flag:
+                    text.insert(tk.INSERT, '无照明灯物料号和定位问题\n')
 
                 book2 = load_workbook(Panel_BOM_file_path)
                 sheet2 = book2['Z7_xlsx']
@@ -3153,7 +3219,7 @@ def process1():
                 data6 = [project_no, 'BOM检查-EBOM中空开缺辅助触点/辅助触点缺空开', error6_calculator, current_time]
                 data7 = [project_no, 'BOM检查-EBOM中多物料共用ID', error7_calculator, current_time]
                 data15 = [project_no, 'BOM检查-EBOM中AIS容性分压装置物料号', error15_calculator, current_time]
-                data16 = [project_no, 'BOM检查-EBOM中低压室照明灯物料号', error16_calculator, current_time]
+                data16 = [project_no, 'BOM检查-EBOM中照明灯物料号和定位', error16_calculator, current_time]
                 data17 = [project_no, 'BOM检查-AIS柜体BOM中微动开关配置1', error17_calculator, current_time]
                 data18 = [project_no, 'BOM检查-AIS柜体BOM中微动开关配置2', error18_calculator, current_time]
                 data19 = [project_no, 'BOM检查-EBOM中500柜CT型号150b/4', error19_calculator, current_time]
